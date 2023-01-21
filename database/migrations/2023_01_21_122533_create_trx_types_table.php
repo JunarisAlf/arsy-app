@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('trx_types', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
+            $table->string('name');
             $table->enum('cash_flow', ['in', 'out']);
             $table->timestamps();
         });
