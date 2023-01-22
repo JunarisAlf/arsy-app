@@ -9,6 +9,7 @@ class Project extends Model
 {
     use HasFactory;
     protected $table = 'projects';
+    protected $fillable = ['name', 'note'];
 
     public function stockHistories(){
         return $this->hasMany(StockHistory::class, 'project_id', 'id');

@@ -11,7 +11,7 @@ class UserController extends Controller{
         $req->validate([ 'username' => 'required', 'password' => 'required' ]);
         if (Auth::attempt(['username' => $req->username, 'password' => $req->password ])) {
             $req->session()->regenerate();
-            return redirect()->route('home');
+            return redirect()->route('home')->with('success', 'Berhasil Login!');
         }
         return back()->withErrors([
             'username' => 'Username atau password yang anda masukan salah',
