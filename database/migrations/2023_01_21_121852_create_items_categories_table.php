@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('items_categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('parent_id')->nullable(false)->default('global');
+            $table->foreignId('parent_id')->nullable(false);
             $table->string('name');
             $table->string('note')->nullable(true);
             $table->timestamps();
