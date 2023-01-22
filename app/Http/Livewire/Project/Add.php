@@ -15,7 +15,7 @@ class Add extends Component {
             'note' => $this->note
         ]);
         $this->emit('refresh_alert', ['show' => 1, 'msg' => 'Berhasil menambahkan '.$this->name]);
-
+        $this->emit('refresh_table');
     }
     public function render() {
         return view('livewire.project.add');
