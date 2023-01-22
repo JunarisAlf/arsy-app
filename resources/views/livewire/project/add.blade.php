@@ -15,7 +15,7 @@
             </x-slot>
         </x-adminlte-input>
         <x-slot name="footerSlot">
-            <x-adminlte-button class="d-flex ml-auto px-3 py-2" theme="primary" label="tambah" type='submit'/>
+            <x-adminlte-button class="d-flex ml-auto px-3 py-2" theme="primary" label="Tambah" type='submit'/>
         </x-slot>
     </x-adminlte-card>
 </form>

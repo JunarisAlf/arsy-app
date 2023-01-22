@@ -17,7 +17,8 @@
                         {{$project->note == null ? "-" : $project->note }}</td>
                     <td style="max-width: 300px">
                         <x-adminlte-button label="Edit" theme="warning" icon="fas fa-pencil-alt"/>
-                        <x-adminlte-button label="Hapus" theme="danger" icon="fas fa-trash-alt" data-toggle="modal" data-target="#modalPurple"/>
+                        <x-adminlte-button label="Hapus" theme="danger" icon="fas fa-trash-alt" wire:click="sendId({{$project->id}}, '{{$project->name}}')"/>
+                            
                     </td>
                 </tr>
             @endforeach
