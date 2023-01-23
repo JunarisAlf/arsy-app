@@ -9,6 +9,7 @@ class ItemCategoryTable extends Component{
         $this->emit('delete_item_category');
     }
     public function update(){
+        $this->emit('update_item_category'); //UpdateItemCategory
         
     }
     public function render(){

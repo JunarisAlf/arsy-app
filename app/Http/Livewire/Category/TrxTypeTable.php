@@ -10,6 +10,7 @@ class TrxTypeTable extends Component{
         $this->emit('delete_trx_type'); //TrxTypeConfirmModal
     } 
     public function update(){
+        $this->emit('update_trx_type'); //TrxTypeCategory
         
     }
     public function render(){

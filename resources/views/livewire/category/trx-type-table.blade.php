@@ -13,7 +13,7 @@
                 <td>Pembelian Barang</td>
                 <td>
                     <x-adminlte-button label="Edit" theme="warning" icon="fas fa-pencil-alt"
-                    wire:click="update"/>
+                    wire:click="update()"/>
                     <x-adminlte-button label="Hapus" theme="danger" icon="fas fa-trash-alt"
                     wire:click="delete()"/>
                 </td>

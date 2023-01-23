@@ -5,6 +5,8 @@
 @section('content_header')
     @livewire('category.item-category-confirm-modal')
     @livewire('category.trx-type-confirm-modal')
+    @livewire('category.update-item-category')
+    @livewire('category.update-trx-type')
     @livewire('alert.simple-alert')
     <h1>Kategori</h1>
 @stop
