@@ -16,8 +16,9 @@
                     <td>
                         {{$project->note == null ? "-" : $project->note }}</td>
                     <td style="max-width: 300px">
-                        <x-adminlte-button label="Edit" theme="warning" icon="fas fa-pencil-alt"/>
-                        <x-adminlte-button label="Hapus" theme="danger" icon="fas fa-trash-alt" wire:click="sendId({{$project->id}}, '{{$project->name}}')"/>
+                        <x-adminlte-button label="Edit" theme="warning" icon="fas fa-pencil-alt"
+                        wire:click="update({{$project->id}}, '{{$project->name}}')"/>
+                        <x-adminlte-button label="Hapus" theme="danger" icon="fas fa-trash-alt" wire:click="delete({{$project->id}}, '{{$project->name}}')"/>
                             
                     </td>
                 </tr>

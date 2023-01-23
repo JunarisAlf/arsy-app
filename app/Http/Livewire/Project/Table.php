@@ -12,9 +12,11 @@ class Table extends Component{
         $this->projects = Project::orderBy('updated_at', 'DESC')->get();
     }
 
-    public function sendId($project_id, $project_name){
-        // dd('ff');
-        $this->emit('delete', ['id' => $project_id, 'name' => $project_name ]);
+    public function delete($project_id, $project_name){
+        $this->emit('delete', ['id' => $project_id, 'name' => $project_name ]); //confirmModal
+    }
+    public function update($project_id, $project_name){
+        $this->emit('update', ['id' => $project_id, 'name' => $project_name]); //Update
     }
     public function render(){
         return view('livewire.project.table');

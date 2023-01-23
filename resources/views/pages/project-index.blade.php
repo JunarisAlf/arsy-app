@@ -4,6 +4,7 @@
 
 @section('content_header')
     @livewire('project.confirm-modal')
+    @livewire('project.update')
     @livewire('alert.simple-alert')
     <h1>Project</h1>
 @stop

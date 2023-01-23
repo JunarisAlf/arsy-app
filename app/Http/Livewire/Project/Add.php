@@ -17,12 +17,17 @@ class Add extends Component {
             'name' => $this->name,
             'note' => $this->note
         ]);
+        //show alert
         $this->emit('refresh_alert', [
             'show' => 1, 
             'msg' => 'Berhasil menambahkan '.$this->name,
             'theme' => 'success',
             'title' => 'Info'
         ]);
+        // empty field
+        $this->name = '';
+        $this->note = '';
+        //refresh table
         $this->emit('refresh_table');
     }
     public function render() {
