@@ -2,8 +2,11 @@
 
 namespace App\Http\Livewire\Project;
 
+use App\Http\Controllers\ProjectController;
 use App\Models\Project;
+// use Illuminate\Http\Request;
 use Livewire\Component;
+use Livewire\Request;
 
 class Add extends Component {
     public $name, $note;
@@ -14,7 +17,12 @@ class Add extends Component {
             'name' => $this->name,
             'note' => $this->note
         ]);
-        $this->emit('refresh_alert', ['show' => 1, 'msg' => 'Berhasil menambahkan '.$this->name]);
+        $this->emit('refresh_alert', [
+            'show' => 1, 
+            'msg' => 'Berhasil menambahkan '.$this->name,
+            'theme' => 'success',
+            'title' => 'Info'
+        ]);
         $this->emit('refresh_table');
     }
     public function render() {

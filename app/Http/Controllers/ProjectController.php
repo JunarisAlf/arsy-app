@@ -11,12 +11,4 @@ class ProjectController extends Controller
         $projects = Project::orderBy('updated_at', 'DESC')->get();
         return view('pages.project-index', ['projects' => $projects]);
     }
-    public function store(Request $req){
-        $req->validate([ 'name' => 'required']);
-        Project::create([
-            'name' => $req->name,
-            'note' => $req->note
-        ]);
-        return back()->with('success', 'Project berhasil ditambhakan!');
-    }
 }

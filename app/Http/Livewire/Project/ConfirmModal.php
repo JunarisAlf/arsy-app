@@ -19,6 +19,13 @@ class ConfirmModal extends Component{
         Project::destroy($id);
         $this->show = 'hidden';
         $this->emit('refresh_table');
+        $this->emit('refresh_alert', [
+            'show' => 1, 
+            'msg' => 'Berhasil meghapus '.$this->name,
+            'theme' => 'success',
+            'title' => 'Info'
+        ]);
+
     }
     public function render(){
         return view('livewire.project.confirm-modal');
