@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
@@ -26,7 +27,10 @@ Route::middleware('auth')->group(function(){
     Route::prefix('/project')->group(function () {
         Route::get('/', [ProjectController::class, 'index'])->name('project_view');
         Route::post('/', [ProjectController::class, 'store'])->name('project.add');
-
+    });
+     Route::prefix('/kategori')->group(function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('category_view');
+        // Route::post('/', [ProjectController::class, 'store'])->name('project.add');
     });
 });
 

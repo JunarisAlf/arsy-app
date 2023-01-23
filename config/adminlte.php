@@ -354,7 +354,7 @@ return [
         ],
         [
             'text' => 'Atur Kategori',
-            'url'  => 'admin/settings',
+            'route' => 'category_view',
             'icon' => 'fas fa-th-list',
         ],
         [
