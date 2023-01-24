@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('category_id');
             $table->string('name');
             $table->integer('quantity')->default(0);
+            $table->string('unit')->nullable(true);
             $table->string('note')->nullable(true);
             $table->timestamps();
         });

@@ -349,7 +349,7 @@ return [
         ],
         [
             'text' => 'Stok',
-            'url'  => 'admin/settings',
+            'route' => 'stock_view',
             'icon' => 'fas fa-boxes',
         ],
         [

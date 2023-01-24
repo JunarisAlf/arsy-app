@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\StockController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,10 +27,14 @@ Route::middleware('auth')->group(function(){
     Route::get('/', [HomeController::class, 'home'])->name('home');
     Route::prefix('/project')->group(function () {
         Route::get('/', [ProjectController::class, 'index'])->name('project_view');
-        Route::post('/', [ProjectController::class, 'store'])->name('project.add');
+        // Route::post('/', [ProjectController::class, 'store'])->name('project.add');
     });
-     Route::prefix('/kategori')->group(function () {
+    Route::prefix('/kategori')->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('category_view');
+        // Route::post('/', [ProjectController::class, 'store'])->name('project.add');
+    });
+    Route::prefix('/stock')->group(function () {
+        Route::get('/', [StockController::class, 'index'])->name('stock_view');
         // Route::post('/', [ProjectController::class, 'store'])->name('project.add');
     });
 });

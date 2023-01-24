@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('project_id');
             $table->enum('action', ['in', 'modify', 'out']);
             $table->integer('quantity');
+            $table->string('unit')->nullable(true);
             $table->string('note')->nullable(true);
             $table->timestamps();
         });
