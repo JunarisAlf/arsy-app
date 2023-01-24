@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('category_id'); //ex: material,alat-kantor,dll
             $table->foreignId('stock_id'); //semen,batu-bata
             $table->foreignId('project_id')->nullable(true); // ditujukan ke project mana?
-            $table->string('name');
+            $table->string('name'); //??
             $table->integer('quantity');
             $table->integer('price');
             $table->integer('final_price');

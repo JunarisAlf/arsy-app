@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DebtController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\StockController;
@@ -31,11 +32,12 @@ Route::middleware('auth')->group(function(){
     });
     Route::prefix('/kategori')->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('category_view');
-        // Route::post('/', [ProjectController::class, 'store'])->name('project.add');
     });
     Route::prefix('/stock')->group(function () {
         Route::get('/', [StockController::class, 'index'])->name('stock_view');
-        // Route::post('/', [ProjectController::class, 'store'])->name('project.add');
+    });
+    Route::prefix('/hutang-dan-cicilan')->group(function () {
+        Route::get('/', [DebtController::class, 'index'])->name('debt_view');
     });
 });
 
