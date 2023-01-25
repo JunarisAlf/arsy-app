@@ -22,8 +22,12 @@
             </div>
             <div class="col-12">
                 @livewire('debt.add-layaway')
-                <x-adminlte-card title="Daftar Cicilan Pembaran" theme="primary" icon="fas fa-wallet">
+                <x-adminlte-card title="Daftar Data Pembelian Rumah" theme="primary" icon="fas fa-wallet">
                     @livewire('debt.layaway-table')
+                </x-adminlte-card>
+                <x-adminlte-card title="Detail Cicilan" theme="primary" icon="fas fa-th-list">
+                    <span><strong> Nama: </strong> Fulan bin Bulan</span> <br>
+                    @livewire('debt.layaway-detail-table')
                 </x-adminlte-card>
             </div>
             
