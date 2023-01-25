@@ -22,7 +22,7 @@
                 <td>Rp. 1.600.000</td>
                 <td>Toko Material Jaya Abadi</td>
                 <td>
-                    <x-adminlte-button label="Edit" theme="warning" icon="fas fa-pencil-alt" wire:click="update()" />
+                    {{-- <x-adminlte-button label="Edit" theme="warning" icon="fas fa-pencil-alt" wire:click="update()" /> --}}
                     <x-adminlte-button label="Tandai Lunas" theme="info" icon="fas fa-check" wire:click="delete()" />
                     <x-adminlte-button label="Hapus" theme="danger" icon="fas fa-trash-alt" wire:click="delete()" />
                 </td>
@@ -36,7 +36,6 @@
                 <td>Rp. 1.600.000</td>
                 <td>Toko Material Jaya Abadi</td>
                 <td>
-                    <x-adminlte-button label="Edit" theme="warning" icon="fas fa-pencil-alt" wire:click="update()" />
                     <x-adminlte-button label="Tandai Lunas" theme="info" icon="fas fa-check" wire:click="delete()" />
                     <x-adminlte-button label="Hapus" theme="danger" icon="fas fa-trash-alt" wire:click="delete()" />
                 </td>
@@ -50,7 +49,6 @@
                 <td>Rp. 1.600.000</td>
                 <td>Toko Material Jaya Abadi</td>
                 <td>
-                    <x-adminlte-button label="Edit" theme="warning" icon="fas fa-pencil-alt" wire:click="update()" />
                     <x-adminlte-button label="Tandai Lunas" theme="info" icon="fas fa-check" wire:click="delete()" />
                     <x-adminlte-button label="Hapus" theme="danger" icon="fas fa-trash-alt" wire:click="delete()" />
                 </td>

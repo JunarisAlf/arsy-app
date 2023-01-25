@@ -19,8 +19,8 @@
                 <td>-</td>
                 <td>
                     <x-adminlte-button label="Edit" theme="warning" icon="fas fa-pencil-alt" wire:click="update()" />
-                    <x-adminlte-button label="Hapus" theme="danger" icon="fas fa-trash-alt" wire:click="delete()" />
-                    <x-adminlte-button label="Bayar" theme="info" icon="fas fa-dollar-sign" wire:click="delete()" />
+                    {{-- <x-adminlte-button label="Hapus" theme="danger" icon="fas fa-trash-alt" wire:click="delete()" /> --}}
+                    <x-adminlte-button label="Bayar" theme="info" icon="fas fa-dollar-sign" wire:click="pay()" />
                 </td>
             </tr>
             <tr>
@@ -31,8 +31,7 @@
                 <td>-</td>
                 <td>
                     <x-adminlte-button label="Edit" theme="warning" icon="fas fa-pencil-alt" wire:click="update()" />
-                    <x-adminlte-button label="Hapus" theme="danger" icon="fas fa-trash-alt" wire:click="delete()" />
-                    <x-adminlte-button label="Bayar" theme="info" icon="fas fa-dollar-sign" wire:click="delete()" />
+                    <x-adminlte-button label="Bayar" theme="info" icon="fas fa-dollar-sign" wire:click="pay()" />
                 </td>
             </tr>
             <tr>
@@ -43,8 +42,7 @@
                 <td>-</td>
                 <td>
                     <x-adminlte-button label="Edit" theme="warning" icon="fas fa-pencil-alt" wire:click="update()" />
-                    <x-adminlte-button label="Hapus" theme="danger" icon="fas fa-trash-alt" wire:click="delete()" />
-                    <x-adminlte-button label="Bayar" theme="info" icon="fas fa-dollar-sign" wire:click="delete()" />
+                    <x-adminlte-button label="Bayar" theme="info" icon="fas fa-dollar-sign" wire:click="pay()" />
                 </td>
             </tr>
             

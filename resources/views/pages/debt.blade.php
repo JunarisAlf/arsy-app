@@ -7,6 +7,7 @@
     @livewire('debt.layaway-confirm-modal')
     @livewire('debt.update-debt')
     @livewire('debt.update-layaway')
+    @livewire('debt.update-layaway-detail')
     @livewire('alert.simple-alert')
     <h1>Hutang dan Cicilan</h1>
 @stop
