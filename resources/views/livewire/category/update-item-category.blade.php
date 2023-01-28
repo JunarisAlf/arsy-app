@@ -12,26 +12,26 @@
                 </button>
             </div>
             <div class="modal-body">
-                <x-adminlte-input name="name" label="Nama Kategori" placeholder="Nama Kategori"   wire:name="name">
+                <x-adminlte-input name="name" label="Nama Kategori" placeholder="Nama Kategori"  wire:model="name" value="{{$name}}">
                     <x-slot name="prependSlot">
                         <div class="input-group-text">
                             <i class="fas fa-th-list"></i>
                         </div>
                     </x-slot>
                 </x-adminlte-input>
-                <x-adminlte-input name="parent" label="Parent" placeholder="Parent" wire:model="parent">
+                {{-- <x-adminlte-input name="parent" label="Parent" placeholder="Parent" wire:model="parent">
                     <x-slot name="prependSlot">
                         <div class="input-group-text">
                             <i class="fas fa-quote-left"></i>
                         </div>
                     </x-slot>
-                </x-adminlte-input>
+                </x-adminlte-input> --}}
             </div>
             <div class="modal-footer">
                 <x-adminlte-button label="Batal" theme="primary" wire:click="$set('show', 'hidden')" />
             
                 <button type="button" class="btn btn-default bg-warning" data-dismiss="modal"
-                    wire:click="update()">
+                    wire:click="update({{$category_id}})">
                     Simpan Perubahan
                 </button>
             </div>
