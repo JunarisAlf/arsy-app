@@ -2,24 +2,27 @@
 
 namespace App\Http\Livewire\Category;
 
+use App\Models\TrxType;
 use Livewire\Component;
 
 class TrxTypeConfirmModal extends Component{
     public $show = 'hidden';
-
+    public $type_id, $name;
     protected $listeners = ['delete_trx_type' => 'confirm'];
 
-    public function confirm(){
+    public function confirm($id, $name){
+        $this->type_id = $id;
+        $this->name = $name;
         $this->show = 'block';
-        // $this->project_id = $project['id'];
-        // $this->name = $project['name'];
     }
-    public function delete(){
+    public function delete($id){
+        TrxType::destroy($id);
+
         $this->show = 'hidden';
-        $this->emit('refresh_table');
+        $this->emit('refresh_trx_types_table');
         $this->emit('refresh_alert', [
             'show' => 1, 
-            'msg' => 'Berhasil meghapus ',
+            'msg' => 'Berhasil meghapus '. $this->name,
             'theme' => 'success',
             'title' => 'Info'
         ]);

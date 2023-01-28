@@ -1,6 +1,6 @@
 <form method="post" wire:submit.prevent="store">
     <x-adminlte-card title="Tambah Tipe Pengeluaran dan Pemasukan" theme="primary" icon="fas fa-plus-square">
-        <x-adminlte-input name="name" label="Nama" placeholder="Nama" label-class="text-primary" wire:name="name">
+        <x-adminlte-input name="name" label="Nama" placeholder="Nama" label-class="text-primary" wire:model="name">
             <x-slot name="prependSlot">
                 <div class="input-group-text">
                     <i class="fas fa-dollar-sign text-primary"></i>
@@ -8,12 +8,13 @@
             </x-slot>
         </x-adminlte-input>
         
-        <x-adminlte-select name="cash_flow" label="Cash Flow" label-class="text-primary" igroup-size="md">
+        <x-adminlte-select name="cash_flow" label="Cash Flow" label-class="text-primary" igroup-size="md" wire:model="cash_flow_value">
             <x-slot name="prependSlot">
                 <div class="input-group-text bg-gradient-primary">
                     <i class="fas fa-exchange-alt"></i>
                 </div>
             </x-slot>
+            <option selected value="">CASH FLOW</option>
             @foreach ($cash_flow as $type)
                 <option value="{{$type['value']}}">{{$type['label']}}</option>
             @endforeach

@@ -12,7 +12,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <x-adminlte-input name="name" label="Nama" placeholder="Nama"  wire:name="name">
+                <x-adminlte-input name="name" label="Nama" placeholder="Nama"  wire:model="name">
                     <x-slot name="prependSlot">
                         <div class="input-group-text">
                             <i class="fas fa-dollar-sign"></i>
@@ -20,14 +20,14 @@
                     </x-slot>
                 </x-adminlte-input>
                 
-                <x-adminlte-select name="cash_flow" label="Cash Flow"  igroup-size="md">
-                    <x-slot name="prependSlot">
+                <x-adminlte-select name="cash_flow" label="Cash Flow"  igroup-size="md" wire:model="cash_flow_value">
+                    <x-slot name="prependSlot" >
                         <div class="input-group-text bg-gradient-primary">
                             <i class="fas fa-exchange-alt"></i>
                         </div>
                     </x-slot>
                     @foreach ($cash_flow as $type)
-                        <option value="{{$type['value']}}">{{$type['label']}}</option>
+                        <option {{$type['value'] == $cash_flow_value ? 'selected' : ''}} value="{{$type['value']}}">{{$type['label']}}</option>
                     @endforeach
                 </x-adminlte-select>
             </div>
@@ -35,7 +35,7 @@
                 <x-adminlte-button label="Batal" theme="primary" wire:click="$set('show', 'hidden')" />
             
                 <button type="button" class="btn btn-default bg-warning" data-dismiss="modal"
-                    wire:click="update()">
+                    wire:click="update({{$type_id}})">
                     Simpan Perubahan
                 </button>
             </div>
