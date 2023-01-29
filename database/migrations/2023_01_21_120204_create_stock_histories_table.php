@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('stock_histories', function (Blueprint $table) {
             $table->id();
             $table->foreignId('stock_id');
-            $table->foreignId('project_id');
+            $table->string('alocate_to');
             $table->enum('action', ['in', 'modify', 'out']);
             $table->integer('quantity');
-            $table->string('unit')->nullable(true);
+            // $table->string('unit')->nullable(true);
             $table->string('note')->nullable(true);
             $table->timestamps();
         });

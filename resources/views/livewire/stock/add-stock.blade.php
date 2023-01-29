@@ -8,16 +8,6 @@
             </x-slot>
         </x-adminlte-input>
 
-        <x-adminlte-select name="category" label="Kategori" label-class="text-success" igroup-size="md" wire:name="category">
-            <x-slot name="prependSlot">
-                <div class="input-group-text bg-gradient-success">
-                    <i class="fas fa-th-list"></i>
-                </div>
-            </x-slot>
-            <option value="1">Barang</option>
-            <option value="1">Jasa</option>
-        </x-adminlte-select>
-
         <x-adminlte-select name="sub-category" label="Sub Kategori" label-class="text-success" igroup-size="md" wire:name="sub-category">
             <x-slot name="prependSlot">
                 <div class="input-group-text bg-gradient-success">
