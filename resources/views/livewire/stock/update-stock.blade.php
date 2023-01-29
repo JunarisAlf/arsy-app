@@ -13,7 +13,7 @@
             </div>
             <div class="modal-body">
                 
-                <x-adminlte-input name="name" label="Nama Barang" placeholder="Nama Barang"    wire:name="name">
+                <x-adminlte-input name="name" label="Nama Barang" placeholder="Nama Barang"   wire:model="name">
                     <x-slot name="prependSlot">
                         <div class="input-group-text">
                             <i class="fas fa-file-signature"></i>
@@ -21,27 +21,19 @@
                     </x-slot>
                 </x-adminlte-input>
         
-                <x-adminlte-select name="category" label="Kategori"  igroup-size="md" wire:name="category">
-                    <x-slot name="prependSlot">
-                        <div class="input-group-text">
-                            <i class="fas fa-th-list"></i>
-                        </div>
-                    </x-slot>
-                    <option value="1">Barang</option>
-                    <option value="1">Jasa</option>
-                </x-adminlte-select>
-        
-                <x-adminlte-select name="sub-category" label="Sub Kategori"  igroup-size="md" wire:name="sub-category">
+                <x-adminlte-select name="category_id" label="Kategori" label-class="text-success" igroup-size="md" wire:model="category_id">
                     <x-slot name="prependSlot">
                         <div class="input-group-text">
                             <i class="fas fa-list"></i>
                         </div>
                     </x-slot>
-                    <option value="1">Material</option>
-                    <option value="1">ATK</option>
+                    <option value="">Pilih Kategori</option>
+                    @foreach ($categories as $category)
+                        <option {{$category_id == $category_id ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
                 </x-adminlte-select>
         
-                <x-adminlte-input type="number" name="quatity" label="Jumlah" placeholder="Jumlah"  wire:model="quatity">
+                <x-adminlte-input type="number" name="quantity" label="Jumlah" placeholder="Jumlah"  wire:model="quantity">
                     <x-slot name="prependSlot">
                         <div class="input-group-text">
                             <i class="fas fa-list-ol"></i>
@@ -70,7 +62,7 @@
                 <x-adminlte-button label="Batal" theme="primary" wire:click="$set('show', 'hidden')" />
             
                 <button type="button" class="btn btn-default bg-warning" data-dismiss="modal"
-                    wire:click="update()">
+                    wire:click="update({{$stock_id}})">
                     Simpan Perubahan
                 </button>
             </div>

@@ -9,6 +9,7 @@ class Stock extends Model
 {
     use HasFactory;
     protected $table = 'stocks';
+    protected $fillable = ['name', 'category_id', 'quantity', 'unit', 'note'];
     public function category(){
         return $this->belongsTo(ItemCategory::class, 'category_id', 'id');
     }

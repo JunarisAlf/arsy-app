@@ -1,6 +1,7 @@
 <form method="post" wire:submit.prevent="store">
     <x-adminlte-card title="Tambah Barang" theme="success" icon="fas fa-plus-square">
-        <x-adminlte-input name="name" label="Nama Barang" placeholder="Nama Barang"   label-class="text-success" wire:name="name">
+        
+        <x-adminlte-input name="name" label="Nama Barang" placeholder="Nama Barang"   label-class="text-success" wire:model="name">
             <x-slot name="prependSlot">
                 <div class="input-group-text">
                     <i class="fas fa-file-signature text-success"></i>
@@ -8,17 +9,19 @@
             </x-slot>
         </x-adminlte-input>
 
-        <x-adminlte-select name="sub-category" label="Sub Kategori" label-class="text-success" igroup-size="md" wire:name="sub-category">
+        <x-adminlte-select name="category_id" label="Kategori" label-class="text-success" igroup-size="md" wire:model="category_id">
             <x-slot name="prependSlot">
                 <div class="input-group-text bg-gradient-success">
                     <i class="fas fa-list"></i>
                 </div>
             </x-slot>
-            <option value="1">Material</option>
-            <option value="1">ATK</option>
+            <option value="">Pilih Kategori</option>
+            @foreach ($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
         </x-adminlte-select>
 
-        <x-adminlte-input type="number" name="quatity" label="Jumlah" placeholder="Jumlah" label-class="text-success" wire:model="quatity">
+        <x-adminlte-input type="number" name="quantity" label="Jumlah" placeholder="Jumlah" label-class="text-success" wire:model="quantity">
             <x-slot name="prependSlot">
                 <div class="input-group-text">
                     <i class="fas fa-list-ol text-success"></i>
