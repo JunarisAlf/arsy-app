@@ -32,7 +32,7 @@ class UpdateStock extends Component{
         $stock->name = $this->name;
         $stock->category_id = $this->category_id;
         $stock->unit = $this->unit;
-        $stock->quantity = $this->quantity;
+        // $stock->quantity = $this->quantity;
         $stock->note = $this->note;
         $stock->save();
 

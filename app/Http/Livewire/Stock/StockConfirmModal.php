@@ -17,7 +17,8 @@ class StockConfirmModal extends Component
         $this->show = 'block';
     }
     public function delete($id){
-        // Stock::destroy($id);
+        Stock::destroy($id);
+        
         $this->show = 'hidden';
         $this->emit('refresh_stocks_table');
         $this->emit('refresh_alert', [

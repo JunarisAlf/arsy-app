@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Stock;
 
 use App\Models\ItemCategory;
 use App\Models\Stock;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class AddStock extends Component{
@@ -17,22 +18,34 @@ class AddStock extends Component{
             'name' =>'required', 
             'category_id' => 'required', 
             'unit' => 'required',
-            'quantity' => 'required|numeric'
+            'quantity' => 'required|numeric|min:1'
         ]);
-        Stock::create([
-            'name' => $this->name,
-            'category_id' => $this->category_id,
-            'unit' => $this->unit,
-            'quantity' => $this->quantity,
-            'note' => $this->note,
-        ]);
+        DB::transaction(function(){
+            $stock = Stock::create([
+                'name' => $this->name,
+                'category_id' => $this->category_id,
+                'unit' => $this->unit,
+                'quantity' => $this->quantity,
+                'note' => $this->note,
+            ]);
+            $stock->histories()->create([
+                'alocate_to' => 'gudang',
+                'action' => 'in',
+                'quantity' => $this->quantity
+            ]);
+        });
+        
         $this->emit('refresh_alert', [
             'show' => 1, 
             'msg' => 'Berhasil menambahkan data barang: '. $this->name,
             'theme' => 'success',
             'title' => 'Info'
         ]);
+        $this->reset();
         $this->emit('refresh_stocks_table');
+        $this->emit('refresh_alocations_table');
+        $this->emit('refresh_stocks_opt');
+
 
     }
     public function render(){

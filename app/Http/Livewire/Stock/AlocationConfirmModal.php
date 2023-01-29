@@ -2,24 +2,26 @@
 
 namespace App\Http\Livewire\Stock;
 
+use App\Models\StockHistory;
 use Livewire\Component;
 
 class AlocationConfirmModal extends Component{
     public $show = 'hidden';
-
+    public $alocation_id;
     protected $listeners = ['delete_alocation' => 'confirm'];
 
-    public function confirm(){
+    public function confirm($id){
+        $this->alocation_id = $id;
         $this->show = 'block';
-        // $this->project_id = $project['id'];
-        // $this->name = $project['name'];
     }
-    public function delete(){
+    public function delete($id){
+        StockHistory::destroy($id);
+
         $this->show = 'hidden';
-        $this->emit('refresh_table');
+        $this->emit('refresh_alocations_table');
         $this->emit('refresh_alert', [
             'show' => 1, 
-            'msg' => 'Berhasil meghapus ',
+            'msg' => 'Berhasil meghapus data',
             'theme' => 'info',
             'title' => 'Info'
         ]);

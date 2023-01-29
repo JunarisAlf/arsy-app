@@ -2,15 +2,24 @@
 
 namespace App\Http\Livewire\Stock;
 
+use App\Models\StockHistory;
 use Livewire\Component;
 
 class AlocationTable extends Component{
-
-    public function delete(){
-        $this->emit('delete_alocation'); //TrxTypeConfirmModal
+    public $alocations = [];
+    public function mount(){
+        $this->alocations = StockHistory::orderBy('updated_at', 'DESC')->get();
+    }
+    protected $listeners = ['refresh_alocations_table' => 'refresh'];
+    public function refresh(){
+        $this->alocations = StockHistory::orderBy('updated_at', 'DESC')->get();
+    }
+    public function delete($id){
+        $this->emit('delete_alocation', $id); //TrxTypeConfirmModal
     } 
-    public function update(){
-        $this->emit('update_alocation'); //TrxTypeCategory
+    public function update($id){
+
+        $this->emit('update_alocation', $id); //TrxTypeCategory
     }
     public function render(){
         return view('livewire.stock.alocation-table');

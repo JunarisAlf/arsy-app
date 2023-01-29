@@ -6,6 +6,7 @@
     @livewire('stock.stock-confirm-modal')
     @livewire('stock.alocation-confirm-modal')
     @livewire('stock.update-stock')
+    @livewire('stock.modify-stock')
     @livewire('stock.update-alocation')
     @livewire('alert.simple-alert')
     <h1>Stock Barang</h1>

@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header bg-warning">
                 <h4 class="modal-title">
-                    <i class="fas fa-pencil-alt mr-2"></i> Update Data Stock Barang
+                    <i class="fas fa-pencil-alt mr-2"></i> Tambah Stok Barang {{$name}}
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"
                     wire:click="$set('show', 'hidden')">
@@ -13,15 +13,7 @@
             </div>
             <div class="modal-body">
                 
-                <x-adminlte-input name="name" label="Nama Barang" placeholder="Nama Barang"   wire:model="name">
-                    <x-slot name="prependSlot">
-                        <div class="input-group-text">
-                            <i class="fas fa-file-signature"></i>
-                        </div>
-                    </x-slot>
-                </x-adminlte-input>
-        
-                <x-adminlte-select name="category_id" label="Kategori"  igroup-size="md" wire:model="category_id">
+                {{-- <x-adminlte-select name="category_id" label="Kategori"  igroup-size="md" wire:model="category_id">
                     <x-slot name="prependSlot">
                         <div class="input-group-text">
                             <i class="fas fa-list"></i>
@@ -31,20 +23,12 @@
                     @foreach ($categories as $category)
                         <option {{$category_id == $category_id ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
-                </x-adminlte-select>
+                </x-adminlte-select> --}}
         
-                {{-- <x-adminlte-input type="number" name="quantity" label="Jumlah" placeholder="Jumlah"  wire:model="quantity">
+                <x-adminlte-input type="number" name="quantity" label="Jumlah" placeholder="Jumlah"  wire:model="quantity">
                     <x-slot name="prependSlot">
                         <div class="input-group-text">
                             <i class="fas fa-list-ol"></i>
-                        </div>
-                    </x-slot>
-                </x-adminlte-input> --}}
-        
-                <x-adminlte-input name="unit" label="Satuan" placeholder="Satuan"  wire:model="unit">
-                    <x-slot name="prependSlot">
-                        <div class="input-group-text">
-                            <i class="fas fa-balance-scale"></i>
                         </div>
                     </x-slot>
                 </x-adminlte-input>

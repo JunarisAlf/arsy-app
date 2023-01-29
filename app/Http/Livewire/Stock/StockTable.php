@@ -21,6 +21,9 @@ class StockTable extends Component{
     public function update($id){
         $this->emit('update_stock', $id); //UpdateItemCategory
     }
+    public function updateTotalStock($id, $name){
+        $this->emit('update_total_stock', $id, $name); //UpdateItemCategory
+    }
     public function render(){
         return view('livewire.stock.stock-table');
     }
