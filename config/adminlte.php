@@ -346,12 +346,12 @@ return [
             'route' => 'debt_view',
             'icon' => 'fas fa-money-check-alt',
         ],
-        [
-            'text' => 'Project',
-            'route' => 'project_view',
-            // 'url'  => 'admin/settings',
-            'icon' => 'fas fa-home',
-        ],
+        // [
+        //     'text' => 'Project',
+        //     'route' => 'project_view',
+        //     // 'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-home',
+        // ],
         [
             'text' => 'Stok',
             'route' => 'stock_view',

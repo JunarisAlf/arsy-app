@@ -19,21 +19,21 @@ class StockSeeder extends Seeder
             [
                 'category_id' => 1,
                 'name' => 'Semen',
-                'quantity' => 20,
+                'quantity' => 0,
                 'unit' => 'sak',
                 'note' => '-'
             ],
             [
                 'category_id' => 2,
                 'name' => 'Batu-Bata',
-                'quantity' => 2,
+                'quantity' => 0,
                 'unit' => 'pickup',
                 'note' => ''
             ],
             [
                 'category_id' => 3,
                 'name' => 'Kertas',
-                'quantity' => '3',
+                'quantity' => 0,
                 'unit' => 'rim',
                 'note' => ''
             ],

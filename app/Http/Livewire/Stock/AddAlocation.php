@@ -16,7 +16,7 @@ class AddAlocation extends Component{
     ];
     public $stocks;
     public function mount(){
-        $this->stocks = Stock::orderBy('name', 'ASC')->get();
+        $this->stocks = Stock::where('quantity', '>', '0')->orderBy('name', 'ASC')->get();
     }
     protected $listeners = ['refresh_stocks_opt' => 'refreshStock'];
     public function refreshStock(){
@@ -42,7 +42,8 @@ class AddAlocation extends Component{
                 'stock_id' => $this->stock_id,
                 'alocate_to' => $this->alocate_to,
                 'action' => 'out',
-                'quantity' => $this->quantity
+                'quantity' => $this->quantity,
+                'note' => $this->note
             ]);
             $stockHis->stock->quantity -= $this->quantity;
             $stockHis->stock->save();

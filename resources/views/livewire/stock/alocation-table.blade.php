@@ -14,7 +14,18 @@
         <tbody>
             @foreach ($alocations as $alocation)
             <tr>
-                <td>{{strtoupper($alocation->action)}}</td>
+                <td>
+                    @if ($alocation->action == 'out')
+                        <button type="button" class="btn btn-sm btn-block btn-outline-danger">
+                            {{strtoupper($alocation->action)}}
+                        </button>
+                    @else
+                        <button type="button" class="btn btn-sm btn-block btn-outline-info">
+                            {{strtoupper($alocation->action)}}
+                        </button>
+                    @endif
+                    
+                </td>
                 <td>{{strtoupper($alocation->alocate_to)}}</td>
                 <td>{{$alocation->stock?->name}}</td>
                 <td>{{$alocation->quantity}} {{$alocation->stock?->unit}}</td>
