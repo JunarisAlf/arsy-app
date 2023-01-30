@@ -342,16 +342,20 @@ return [
             'icon' => 'fas fa-wallet',
         ],
         [
-            'text' => 'Hutang & Cicilan',
+            'text' => 'Data Penjualan',
+            'route' => 'sales_view',
+            'icon' => 'fas fa-home',
+        ],
+        [
+            'text' => 'Daftar Hutang',
             'route' => 'debt_view',
             'icon' => 'fas fa-money-check-alt',
         ],
-        // [
-        //     'text' => 'Project',
-        //     'route' => 'project_view',
-        //     // 'url'  => 'admin/settings',
-        //     'icon' => 'fas fa-home',
-        // ],
+        [
+            'text' => 'Kontraktor',
+            'route' => 'contractor_view',
+            'icon' => 'fas fa-hammer',
+        ],
         [
             'text' => 'Stok',
             'route' => 'stock_view',

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Debt;
+namespace App\Http\Livewire\Layaway;
 
 use Livewire\Component;
 
@@ -30,6 +30,6 @@ class UpdateLayaway extends Component{
 
     }
     public function render(){
-        return view('livewire.debt.update-layaway');
+        return view('livewire.layaway.update-layaway');
     }
 }

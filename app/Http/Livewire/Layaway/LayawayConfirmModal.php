@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Debt;
+namespace App\Http\Livewire\Layaway;
 
 use Livewire\Component;
 
@@ -26,6 +26,6 @@ class LayawayConfirmModal extends Component{
     }
 
     public function render(){
-        return view('livewire.debt.layaway-confirm-modal');
+        return view('livewire.layaway.layaway-confirm-modal');
     }
 }

@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\DebtController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\SalesController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\TrxController;
 use App\Http\Controllers\UserController;
@@ -40,8 +42,14 @@ Route::middleware('auth')->group(function(){
     Route::prefix('/stock')->group(function () {
         Route::get('/', [StockController::class, 'index'])->name('stock_view');
     });
-    Route::prefix('/hutang-dan-cicilan')->group(function () {
+    Route::prefix('/data-hutang')->group(function () {
         Route::get('/', [DebtController::class, 'index'])->name('debt_view');
+    });
+    Route::prefix('/data-penjualan')->group(function () {
+        Route::get('/', [SalesController::class, 'index'])->name('sales_view');
+    });
+    Route::prefix('/kontraktor')->group(function () {
+        Route::get('/', [ContractorController::class, 'index'])->name('contractor_view');
     });
 });
 

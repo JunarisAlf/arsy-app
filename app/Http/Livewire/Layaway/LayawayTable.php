@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Debt;
+namespace App\Http\Livewire\Layaway;
 
 use Livewire\Component;
 
@@ -13,6 +13,6 @@ class LayawayTable extends Component{
         $this->emit('update_layaway'); //TrxTypeCategory
     }
     public function render(){
-        return view('livewire.debt.layaway-table');
+        return view('livewire.layaway.layaway-table');
     }
 }
