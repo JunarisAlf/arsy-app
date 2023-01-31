@@ -9,7 +9,7 @@ class Transaction extends Model
 {
     use HasFactory;
     protected $table = 'transcations';
-    protected $guarded = ['id'];
+    protected $guarded = [];
     public function type(){
         return $this->belongsTo(TrxType::class, 'type_id', 'id');
     }

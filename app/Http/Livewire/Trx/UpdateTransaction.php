@@ -56,7 +56,9 @@ class UpdateTransaction extends Component{
             'note' => 'nullable'
         ]);
         $trx = Transaction::find($id);
+        $saldo = $trx->saldo + $trx->final_price - $this->final_price; //undo
         $trx->fill($validated);
+        $trx->saldo = $saldo;
         $trx->save();
         $this->emit('refresh_alert', [
             'show' => 1, 

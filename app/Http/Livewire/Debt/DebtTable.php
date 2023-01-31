@@ -10,8 +10,13 @@ class DebtTable extends Component{
     public function mount(){
         $this->trxs = Transaction::where('status', 'hutang')->latest()->get();
     }
-    public function delete(){
-        $this->emit('delete_debt');
+
+    protected $listeners = ['refresh_debt_table' => 'refresh'];
+    public function refresh(){
+        $this->trxs = Transaction::where('status', 'hutang')->latest()->get();
+    }
+    public function pay($id){
+        $this->emit('pay_debt', $id);
     }
     public function update(){
         $this->emit('update_debt'); //UpdateItemCategory

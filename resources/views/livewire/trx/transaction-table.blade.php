@@ -9,6 +9,8 @@
                 <th>Harga Total</th>
                 <th>Status Pembayaran</th>
                 <th>Jatuh Tempo</th>
+                {{-- <th>Waktu Pembayaran</th> --}}
+                <th>Saldo</th>
                 <th>Catatan</th>
                 <th>Aksi</th>
             </tr>
@@ -35,22 +37,38 @@
                             HUTANG
                         </button>
                     @else
-                        <button type="button" class="btn btn-sm btn-block btn-outline-succes">
+                        <button type="button" class="btn btn-sm btn-block btn-outline-success">
                             LUNAS
                         </button>
                     @endif
                     
                 </td>
+               
                 <td>
                     @if ($trx->jatuh_tempo)
                         <button type="button" class="btn btn-sm btn-block btn-outline-danger">
                             {{ date('d/m/Y', strtotime($trx->jatuh_tempo))}}
                         </button>
+                    @else
+                        -
                     @endif 
                 </td>
-                <td>{{$trx->note}}</td>
+                 {{-- <td>
+                    @if ($trx->paid_at)
+                        <button type="button" class="btn btn-sm btn-block btn-outline-danger">
+                            {{ date('d/m/Y', strtotime($trx->paid_at))}}
+                        </button>
+                    @else
+                        -
+                    @endif 
+                </td> --}}
                 <td>
-                    @if ($trx->status == 'hutang' || $trx->id == $trx_latest->id)
+                    Rp. {{ number_format($trx->saldo,2,',','.')}}
+                </td>
+                <td>{{$trx->note}} </td>
+
+                <td>
+                    @if ($trx->status == 'hutang' || $trx->id == $trxs->first()->id)
                         <x-adminlte-button class="btn-sm" theme="warning" icon="fas fa-pencil-alt"
                         wire:click="update({{$trx->id}})"/>
                         <x-adminlte-button class="btn-sm" theme="danger" icon="fas fa-trash-alt"

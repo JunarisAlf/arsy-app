@@ -7,14 +7,14 @@ use Livewire\Component;
 
 class TransactionTable extends Component{
     public $trxs = [];
-    public $trx_latest;
     public function mount(){
-        $this->trxs = Transaction::latest()->get();
-        $this->trx_latest = Transaction::where('status', 'cash')->latest()->first();
+        $this->trxs = Transaction::where('status', '!=', 'lunas')->latest()->get();
     }
     protected $listeners = ['refresh_trxs_table' => 'refresh'];
     public function refresh(){
-        $this->trxs = Transaction::latest()->get();
+        $this->reset();
+        $this->trxs = Transaction::where('status', '!=', 'lunas')->latest()->get();
+
     }
     public function delete($id, $name){
         $this->emit('delete_trx', $id, $name);

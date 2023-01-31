@@ -23,9 +23,11 @@ return new class extends Migration
             $table->integer('quantity');
             $table->integer('price');
             $table->integer('final_price');
+            $table->bigInteger('saldo');
             $table->string('unit');
             $table->enum('status', ['lunas', 'hutang', 'cash']);
             $table->date('jatuh_tempo')->nullable(true);
+            $table->date('paid_at')->nullable(true);
             $table->string('note')->nullable(true);
             $table->timestamps();
         });

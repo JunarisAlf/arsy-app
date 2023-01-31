@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Trx;
 
 use App\Models\Transaction;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class TransactionConfirmModal extends Component
@@ -20,6 +21,7 @@ class TransactionConfirmModal extends Component
     public function delete($id){
         Transaction::destroy($id);
         $this->show = 'hidden';
+
         $this->emit('refresh_trxs_table');
         $this->emit('refresh_alert', [
             'show' => 1, 
@@ -27,6 +29,7 @@ class TransactionConfirmModal extends Component
             'theme' => 'info',
             'title' => 'Info'
         ]);
+       
     }
 
     public function render(){

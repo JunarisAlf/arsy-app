@@ -30,9 +30,10 @@ class AddTransaction extends Component{
     }
 
     public function store(){
-        // dd($this);
         if($this->status != 'hutang'){
             $this->jatuh_tempo = null;
+            $trx_latest = Transaction::where('status', '!=', 'hutang')->latest()->first();
+            $validated['saldo'] = $trx_latest->saldo - $this->final_price;
         }
         $validated = $this->validate([
             'type_id' => 'required',
@@ -45,10 +46,12 @@ class AddTransaction extends Component{
             'jatuh_tempo' => Rule::requiredIf(fn () => $this->status == 'hutang'),
             'note' => 'nullable'
         ]);
-        // dd($validated);g
+        $trx_latest = Transaction::where('status', '!=', 'hutang')->latest()->first();
+        $validated['saldo'] = $this->status == 'hutang' ? $trx_latest->saldo :  ($trx_latest->saldo - $this->final_price);
+        // dd($validated);
         Transaction::create($validated);
         $this->resetExcept('trx_types');
-        // $this->trx_types = TrxType::where('cash_flow', 'out')->orderBy('name', 'ASC')->get();
+        
         $this->emit('refresh_alert', [
             'show' => 1, 
             'msg' => 'Berhasil menambahkan data Transaksi '.$this->name,
