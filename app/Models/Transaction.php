@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     use HasFactory;
-    protected $table = 'transactions';
+    protected $table = 'transcations';
+    protected $guarded = ['id'];
     public function type(){
         return $this->belongsTo(TrxType::class, 'type_id', 'id');
     }

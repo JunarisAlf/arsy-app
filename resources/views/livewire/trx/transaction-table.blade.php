@@ -3,33 +3,52 @@
         <thead>
             <tr>
                 <th>Tanggal</th>
-                <th>Nama</th>
+                <th>Keterangan</th>
                 <th>Jumlah</th>
                 <th>Harga Satuan</th>
-                <th>Project</th>
+                <th>Harga Total</th>
                 <th>Status Pembayaran</th>
                 <th>Jatuh Tempo</th>
-                <th>KREDIT</th>
-                <th>DEBET</th>
-                <th>SALDO</th>
                 <th>Catatan</th>
                 <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
-            @for ($i = 0; $i < 10; $i++)
+            @foreach ($trxs as $trx)
             <tr>
-                <td>20/10/2023</td>
-                <td>Barang - Material Bangunan - Semen</td>
-                <td>20 sak</td>
-                <td>Rp. 80.0000</td>
-                <td>Dmashome</td>
-                <td>Bayar Lunas</td>
-                <td>-</td>
-                <td>Rp. 1.600.000</td>
-                <td></td>
-                <td>Rp. 1.000.0000.0000</td>
-                <td>-</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-block btn-outline-warning">
+                        {{ date_format($trx->created_at, 'd/m/Y H:i')}}
+                    </button>
+                </td>
+                <td>{{$trx->name}}</td>
+                <td>{{$trx->quantity}} {{$trx->unit}}</td>
+                <td>Rp. {{ number_format($trx->price,2,',','.')}}</td>
+                <td>Rp. {{number_format($trx->final_price,2,',','.')}}</td>
+                <td>
+                    @if ($trx->status == 'cash')
+                        <button type="button" class="btn btn-sm btn-block btn-outline-info">
+                            CASH
+                        </button>
+                    @elseif ($trx->status == 'hutang')
+                        <button type="button" class="btn btn-sm btn-block btn-outline-danger">
+                            HUTANG
+                        </button>
+                    @else
+                        <button type="button" class="btn btn-sm btn-block btn-outline-succes">
+                            LUNAS
+                        </button>
+                    @endif
+                    
+                </td>
+                <td>
+                    @if ($trx->jatuh_tempo)
+                        <button type="button" class="btn btn-sm btn-block btn-outline-danger">
+                            {{ date('d/m/Y', strtotime($trx->jatuh_tempo))}}
+                        </button>
+                    @endif 
+                </td>
+                <td>{{$trx->note}}</td>
                 <td>
                     <x-adminlte-button label="Edit" theme="warning" icon="fas fa-pencil-alt"
                     wire:click="update()"/>
@@ -37,7 +56,8 @@
                     wire:click="delete()"/>
                 </td>
             </tr>
-            @endfor
+            @endforeach
+            
             
             
         </tbody>

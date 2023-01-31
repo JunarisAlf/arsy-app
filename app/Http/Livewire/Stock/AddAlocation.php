@@ -47,14 +47,14 @@ class AddAlocation extends Component{
             ]);
             $stockHis->stock->quantity -= $this->quantity;
             $stockHis->stock->save();
-            $this->emit('refresh_alert', [
-                'show' => 1, 
-                'msg' => 'Berhasil menambahkan data alokasi',
-                'theme' => 'success',
-                'title' => 'Info'
-            ]);
+            
         });
-        
+        $this->emit('refresh_alert', [
+            'show' => 1, 
+            'msg' => 'Berhasil menambahkan data alokasi',
+            'theme' => 'success',
+            'title' => 'Info'
+        ]);
         $this->reset();
         $this->stocks = Stock::orderBy('name', 'ASC')->get();
 

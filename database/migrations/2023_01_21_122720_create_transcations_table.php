@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('transcations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('type_id'); //cash in or out.
-            $table->foreignId('category_id'); //ex: material,alat-kantor,dll
-            $table->foreignId('stock_id'); //semen,batu-bata
-            $table->foreignId('project_id')->nullable(true); // ditujukan ke project mana?
+            // $table->foreignId('category_id'); //ex: material,alat-kantor,dll
+            // $table->foreignId('stock_id'); //semen,batu-bata
+            // $table->foreignId('project_id')->nullable(true); // ditujukan ke project mana?
             $table->string('name'); //??
             $table->integer('quantity');
             $table->integer('price');
