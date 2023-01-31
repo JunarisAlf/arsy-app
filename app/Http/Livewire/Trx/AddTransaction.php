@@ -45,7 +45,7 @@ class AddTransaction extends Component{
             'jatuh_tempo' => Rule::requiredIf(fn () => $this->status == 'hutang'),
             'note' => 'nullable'
         ]);
-        // dd($validated);
+        // dd($validated);g
         Transaction::create($validated);
         $this->resetExcept('trx_types');
         // $this->trx_types = TrxType::where('cash_flow', 'out')->orderBy('name', 'ASC')->get();

@@ -50,10 +50,13 @@
                 </td>
                 <td>{{$trx->note}}</td>
                 <td>
-                    <x-adminlte-button label="Edit" theme="warning" icon="fas fa-pencil-alt"
-                    wire:click="update()"/>
-                    <x-adminlte-button label="Hapus" theme="danger" icon="fas fa-trash-alt"
-                    wire:click="delete()"/>
+                    @if ($trx->status == 'hutang' || $trx->id == $trx_latest->id)
+                        <x-adminlte-button class="btn-sm" theme="warning" icon="fas fa-pencil-alt"
+                        wire:click="update({{$trx->id}})"/>
+                        <x-adminlte-button class="btn-sm" theme="danger" icon="fas fa-trash-alt"
+                        wire:click="delete({{$trx->id}}, '{{$trx->name}}')"/>
+                    @endif
+                    
                 </td>
             </tr>
             @endforeach

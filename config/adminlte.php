@@ -336,7 +336,7 @@ return [
         ],
         ['header' => 'MENU'],
         [
-            'text' => 'Keungangan',
+            'text' => 'Pengeluaran',
             'route' => 'trx_view',
             // 'url'  => 'admin/settings',
             'icon' => 'fas fa-wallet',

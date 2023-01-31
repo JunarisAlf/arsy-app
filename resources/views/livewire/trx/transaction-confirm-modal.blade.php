@@ -11,13 +11,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                Apakah anda yakin akan menghapus kategori barang ... <span style="font-weight: 600"></span>
+                Apakah anda yakin akan menghapus transaksi {{$name}} <span style="font-weight: 600"></span>
             </div>
             <div class="modal-footer">
                 <x-adminlte-button label="Batal" theme="primary" wire:click="$set('show', 'hidden')"/>
                 {{-- <form method="post" wire:submit.prevent="delete({{$project_id}})">
                 </form> --}}
-                <button type="button" class="btn btn-default bg-danger" data-dismiss="modal" wire:click="delete()">
+                <button type="button" class="btn btn-default bg-danger" data-dismiss="modal" wire:click="delete({{$trx_id}})">
                     Hapus 
                 </button>
             </div>
