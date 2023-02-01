@@ -19,6 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TrxTypeSeeder::class);
         $this->call(StockSeeder::class);
         $this->call(TrxSeeder::class);
-
+        $this->call(LayawaySeeder::class);
     }
 }

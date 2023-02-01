@@ -2,24 +2,26 @@
 
 namespace App\Http\Livewire\Layaway;
 
+use App\Models\Layaway;
 use Livewire\Component;
 
 class LayawayConfirmModal extends Component{
-    public $show = 'hidden';
+    public $show = 'hidden', $layaway_id, $name;
 
     protected $listeners = ['delete_layaway' => 'confirm'];
 
-    public function confirm(){
+    public function confirm($id, $name){
+        $this->layaway_id = $id;
+        $this->name = $name;
         $this->show = 'block';
-        // $this->project_id = $project['id'];
-        // $this->name = $project['name'];
     }
-    public function delete(){
+    public function delete($id){
+        Layaway::destroy($id);
         $this->show = 'hidden';
-        $this->emit('refresh_table');
+        $this->emit('refresh_layaways_table');
         $this->emit('refresh_alert', [
             'show' => 1, 
-            'msg' => 'Berhasil meghapus ',
+            'msg' => 'Berhasil meghapus '. $this->name,
             'theme' => 'info',
             'title' => 'Info'
         ]);

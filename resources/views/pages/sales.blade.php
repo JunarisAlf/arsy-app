@@ -4,7 +4,7 @@
 
 @section('content_header')
     @livewire('layaway.layaway-confirm-modal')
-    @livewire('layaway.update-layaway')
+    @livewire('layaway.make-finish-confirmation')
     @livewire('layaway.update-layaway-detail')
     @livewire('alert.simple-alert')
     <h1>Data Penjualan</h1>
@@ -18,8 +18,7 @@
                 <x-adminlte-card title="Daftar Data Pembelian Rumah" theme="primary" icon="fas fa-wallet">
                     @livewire('layaway.layaway-table')
                 </x-adminlte-card>
-                <x-adminlte-card title="Detail Cicilan" theme="primary" icon="fas fa-th-list">
-                    <span><strong> Nama: </strong> Fulan bin Bulan</span> <br>
+                <x-adminlte-card title="Detail Cicilan" theme="success" icon="fas fa-th-list">
                     @livewire('layaway.layaway-detail-table')
                 </x-adminlte-card>
             </div>

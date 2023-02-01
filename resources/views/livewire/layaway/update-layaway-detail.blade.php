@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header bg-warning">
                 <h4 class="modal-title">
-                    <i class="fas fa-pencil-alt mr-2"></i> Update Data Pembelian Rumah
+                    <i class="fas fa-pencil-alt mr-2"></i> Bayar Angsuran Bulan Ke-{{$month}}
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"
                     wire:click="$set('show', 'hidden')">
@@ -13,7 +13,7 @@
             </div>
             <div class="modal-body">
 
-                <x-adminlte-input type="number"  name="payment" label="Pembayaran" placeholder="Pembayaran"  wire:name="payment">
+                <x-adminlte-input type="number"  name="paid" label="Pembayaran" placeholder="Pembayaran"  wire:model="paid">
                     <x-slot name="prependSlot">
                         <div class="input-group-text">
                             <i class="fas fa-dollar-sign "></i>
@@ -21,7 +21,7 @@
                     </x-slot>
                 </x-adminlte-input>
 
-                <x-adminlte-input name="note" label="Catatan" placeholder="Catatan"  wire:name="note">
+                <x-adminlte-input name="note" label="Catatan" placeholder="Catatan"  wire:model="note">
                     <x-slot name="prependSlot">
                         <div class="input-group-text">
                             <i class="fas fa-id-card "></i>
@@ -34,8 +34,8 @@
                 <x-adminlte-button label="Batal" theme="primary" wire:click="$set('show', 'hidden')" />
             
                 <button type="button" class="btn btn-default bg-warning" data-dismiss="modal"
-                    wire:click="update()">
-                    Simpan Perubahan
+                    wire:click="pay({{$detail_id}})">
+                    Bayar
                 </button>
             </div>
         </div>

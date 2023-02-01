@@ -334,17 +334,12 @@ return [
             // 'label'       => 4,
             // 'label_color' => 'success',
         ],
-        ['header' => 'MENU'],
+        ['header' => 'PENGELUARAN',  'classes' => 'pt-3'],
         [
-            'text' => 'Pengeluaran',
+            'text' => 'Transaksi Umum',
             'route' => 'trx_view',
             // 'url'  => 'admin/settings',
             'icon' => 'fas fa-wallet',
-        ],
-        [
-            'text' => 'Data Penjualan',
-            'route' => 'sales_view',
-            'icon' => 'fas fa-home',
         ],
         [
             'text' => 'Daftar Hutang',
@@ -356,6 +351,14 @@ return [
             'route' => 'contractor_view',
             'icon' => 'fas fa-hammer',
         ],
+        ['header' => 'PEMASUKAN', 'classes' => 'pt-3'],
+        [
+            'text' => 'Data Penjualan',
+            'route' => 'sales_view',
+            'icon' => 'fas fa-home',
+        ],
+        ['header' => 'OTHER', 'classes' => 'pt-3'],
+        
         [
             'text' => 'Stok',
             'route' => 'stock_view',

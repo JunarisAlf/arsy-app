@@ -13,16 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('layaways', function (Blueprint $table) {
+        Schema::create('layaway_details', function (Blueprint $table) {
             $table->id();
-            $table->boolean('is_finish')->default(false);
-            $table->string('customer_name');
-            $table->string('customer_wa');
-            $table->integer('tenor'); //1-36 month
-            $table->string('project');
-            $table->string('block');
-            $table->integer('price');
-            $table->string('note')->nullable();
+            $table->foreignId('layaway_id');
+            $table->integer('month');
+            $table->date('jatuh_tempo');
+            $table->integer('paid')->nullable(true);
+            $table->date('paid_at')->nullable(true);
+            $table->string('note')->nullable(true);
             $table->timestamps();
         });
     }
@@ -34,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('layaways');
+        Schema::dropIfExists('layaway_details');
     }
 };
