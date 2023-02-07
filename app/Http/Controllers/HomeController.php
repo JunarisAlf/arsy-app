@@ -13,9 +13,9 @@ class HomeController extends Controller
         $pemasukan = LayawayDetail::where('paid', '!=', null)->sum('paid');
         $pengeluaran = Transaction::where('status', '!=', 'hutang')->sum('final_price');
         $hutang = Transaction::where('status', 'hutang')->get();
-        $statyOfMonth =  Carbon::now()->startOfMonth()->format('Y-m-d');
+        $startOfMonth =  Carbon::now()->startOfMonth()->format('Y-m-d');
         $endOfMonth =  Carbon::now()->endOfMonth()->format('Y-m-d');
-        $angsuran = LayawayDetail::where('paid', null)->whereBetween('jatuh_tempo', [$statyOfMonth, $endOfMonth])->get();
+        $angsuran = LayawayDetail::where('paid', null)->whereBetween('jatuh_tempo', [$startOfMonth, $endOfMonth])->get();
         return view('pages.home', compact('pemasukan', 'pengeluaran', 'hutang', 'angsuran'));
     }
 }

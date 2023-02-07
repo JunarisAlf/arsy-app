@@ -357,6 +357,28 @@ return [
             'route' => 'sales_view',
             'icon' => 'fas fa-home',
         ],
+        ['header' => 'LAPORAN', 'classes' => 'pt-3'],
+        
+        [
+            'text' => 'Pengeluaran',
+            'route' => 'pengeluaran_view',
+            'icon' => 'fas fa-sign-out-alt',
+        ],
+        [
+            'text' => 'Pemasukan',
+            'route' => 'pemasukan_view',
+            'icon' => 'fas fa-sign-in-alt',
+        ],
+        [
+            'text' => 'Pengeluaran dan Pemasukan',
+            'route' => 'both_view',
+            'icon' => 'fas fa-exchange-alt',
+        ],
+        [
+            'text' => 'Riwayat Keuangan',
+            'route' => 'history_view',
+            'icon' => 'fas fa-history',
+        ],
         ['header' => 'OTHER', 'classes' => 'pt-3'],
         
         [

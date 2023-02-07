@@ -5,6 +5,7 @@ use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\DebtController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\TrxController;
@@ -50,6 +51,14 @@ Route::middleware('auth')->group(function(){
     });
     Route::prefix('/kontraktor')->group(function () {
         Route::get('/', [ContractorController::class, 'index'])->name('contractor_view');
+    });
+    Route::prefix('/laporan')->group(function () {
+        Route::get('/pengeluaran', [ReportController::class, 'pengeluaran'])->name('pengeluaran_view');
+        Route::get('/pengeluaran/cetak', [ReportController::class, 'pengeluaranCetak'])->name('pengeluaran_cetak');
+        Route::get('/pemasukan', [ReportController::class, 'pemasukan'])->name('pemasukan_view');
+        Route::get('/pengeluaran-dan-pemasukan', [ReportController::class, 'both'])->name('both_view');
+        Route::get('/riwayat-keungan', [ReportController::class, 'history'])->name('history_view');
+
     });
 });
 
