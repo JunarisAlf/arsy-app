@@ -25,7 +25,7 @@ class TrxSeeder extends Seeder
             'price' => 80000,
             'final_price' => 1_600_000 ,
             'status' => 'cash',
-            'saldo' => 10_000_000
+            // 'saldo' => 10_000_000
         ]);
         sleep(1);
         Transaction::create([
@@ -36,7 +36,7 @@ class TrxSeeder extends Seeder
             'price' => 50000,
             'final_price' => 250_000 ,
             'status' => 'cash',
-            'saldo' => 9_750_000
+            // 'saldo' => 9_750_000
             
         ]);
         sleep(1);
@@ -48,7 +48,7 @@ class TrxSeeder extends Seeder
             'price' => 20000,
             'final_price' => 60_000 ,
             'status' => 'cash',
-            'saldo' => 9_690_000
+            // 'saldo' => 9_690_000
         ]);
     }
 }

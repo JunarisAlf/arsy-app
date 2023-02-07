@@ -68,12 +68,13 @@
                 <td>{{$trx->note}} </td>
 
                 <td>
-                    @if ($trx->status == 'hutang' || $trx->id == $trxs->first()->id)
-                        <x-adminlte-button class="btn-sm" theme="warning" icon="fas fa-pencil-alt"
-                        wire:click="update({{$trx->id}})"/>
-                        <x-adminlte-button class="btn-sm" theme="danger" icon="fas fa-trash-alt"
-                        wire:click="delete({{$trx->id}}, '{{$trx->name}}')"/>
-                    @endif
+                    <x-adminlte-button class="btn-sm" theme="warning" icon="fas fa-pencil-alt"
+                    wire:click="update({{$trx->id}})"/>
+                    <x-adminlte-button class="btn-sm" theme="danger" icon="fas fa-trash-alt"
+                    wire:click="delete({{$trx->id}}, '{{$trx->name}}')"/>
+                    {{-- @if ($trx->status == 'hutang' || $trx->id == $trxs->first()->id)
+                       
+                    @endif --}}
                     
                 </td>
             </tr>

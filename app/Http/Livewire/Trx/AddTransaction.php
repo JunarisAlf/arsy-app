@@ -33,7 +33,7 @@ class AddTransaction extends Component{
         if($this->status != 'hutang'){
             $this->jatuh_tempo = null;
             $trx_latest = Transaction::where('status', '!=', 'hutang')->latest()->first();
-            $validated['saldo'] = $trx_latest->saldo - $this->final_price;
+            // $validated['saldo'] = $trx_latest->saldo - $this->final_price;
         }
         $validated = $this->validate([
             'type_id' => 'required',
@@ -46,8 +46,8 @@ class AddTransaction extends Component{
             'jatuh_tempo' => Rule::requiredIf(fn () => $this->status == 'hutang'),
             'note' => 'nullable'
         ]);
-        $trx_latest = Transaction::where('status', '!=', 'hutang')->latest()->first();
-        $validated['saldo'] = $this->status == 'hutang' ? $trx_latest->saldo :  ($trx_latest->saldo - $this->final_price);
+        // $trx_latest = Transaction::where('status', '!=', 'hutang')->latest()->first();
+        // $validated['saldo'] = $this->status == 'hutang' ? $trx_latest->saldo :  ($trx_latest->saldo - $this->final_price);
         // dd($validated);
         Transaction::create($validated);
         $this->resetExcept('trx_types');

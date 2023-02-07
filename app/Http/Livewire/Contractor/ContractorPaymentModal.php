@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Contractor;
 
 use App\Models\ContractorDetail;
+use App\Models\Transaction;
 use DateInterval;
 use DateTime;
 use Illuminate\Support\Facades\DB;
@@ -32,10 +33,21 @@ class ContractorPaymentModal extends Component{
             }else if($contractor_detail->interval == 'month'){
                 $jatuh_tempo->add(new DateInterval('P30D'));
             }
+            $periode = ContractorDetail::latest()->first()->periode + 1;
             ContractorDetail::create([
                 'contractor_id' => $contractor_detail->contractor_id,
                 'jatuh_tempo' =>$jatuh_tempo,
-                'periode' => ContractorDetail::latest()->first()->periode + 1
+                'periode' => $periode 
+            ]);
+            Transaction::create([
+                'type_id' => 2, //pembayaran jasa
+                'name' => 'Pembayaran kontraktor '.$contractor_detail->contractor->contractor_name,
+                'quantity' => 1,
+                'price' => $this->paid,
+                'final_price' => $this->paid,
+                'unit' => 'x',
+                'status' => 'cash',
+                'note' => 'Pembayaran Periode '.$periode
             ]);
         });
        

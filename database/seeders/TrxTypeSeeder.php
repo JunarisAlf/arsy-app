@@ -21,15 +21,15 @@ class TrxTypeSeeder extends Seeder
                 'cash_flow' => 'out'
             ],
             [
+                'name' => 'Pembayaran Jasa',
+                'cash_flow' => 'out'
+            ],
+            [
                 'name' => 'Pembelian Keperluan Kantor',
                 'cash_flow' => 'out'
             ],
             [
                 'name' => 'Pembelian Keperluan Konsumsi',
-                'cash_flow' => 'out'
-            ],
-            [
-                'name' => 'Pembayaran Jasa',
                 'cash_flow' => 'out'
             ],
             [
