@@ -9,7 +9,7 @@
     <title>Laporan</title>
 </head>
 <body class="p-4">
-    <h2 class="text-center">LAPORAN PENGELUARAN</h2>
+    <h2 class="text-center">LAPORAN PEMASUKAN</h2>
     <h4 class="text-center">Periode: {{request()->date_start .' sd. '.request()->date_end }}</h4>
     <div class="table-responsive my-4">
         <table  class="table-bordered table" style="width: 100%">
@@ -18,21 +18,21 @@
                     <th>No.</th>
                     <th>Tanggal</th>
                     <th>Keterangan</th>
-                    <th>Pengeluaran</th>
+                    <th>Pemasukan</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($trxs as $key => $trx)
+                @foreach ($pemasukan as $key => $pem)
                 <tr>
                     <td>{{$key+1}}</td>
-                    {{-- <td>{{ date_format($trx['created_at'], 'd/m/Y H:i')}}</td> --}}
+                    {{-- <td>{{ date_format($pem['created_at'], 'd/m/Y H:i')}}</td> --}}
                     <td>
-                        {{ date('d/m/Y', strtotime($trx['created_at']))}}
+                        {{ date('d/m/Y', strtotime($pem['created_at']))}}
                     </td>
                     <td>
-                        {{$trx['name']}} {{ '@'.$trx['quantity']}} {{$trx->unit}}
+                        Angsuran ke-{{$pem['month']}} | {{$pem->layaway->customer_name}} | {{$pem->layaway->project}} {{$pem->layaway->block}}
                     </td>
-                    <td>{{number_format($trx['final_price'],2,'.',',')}}</td>
+                    <td>{{number_format($pem['paid'],2,'.',',')}}</td>
                 </tr>
                 @endforeach
                 <tr class="text-center text-bold">

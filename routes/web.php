@@ -55,7 +55,10 @@ Route::middleware('auth')->group(function(){
     Route::prefix('/laporan')->group(function () {
         Route::get('/pengeluaran', [ReportController::class, 'pengeluaran'])->name('pengeluaran_view');
         Route::get('/pengeluaran/cetak', [ReportController::class, 'pengeluaranCetak'])->name('pengeluaran_cetak');
+        
         Route::get('/pemasukan', [ReportController::class, 'pemasukan'])->name('pemasukan_view');
+        Route::get('/pemasukan/cetak', [ReportController::class, 'pemasukanCetak'])->name('pemasukan_cetak');
+
         Route::get('/pengeluaran-dan-pemasukan', [ReportController::class, 'both'])->name('both_view');
         Route::get('/riwayat-keungan', [ReportController::class, 'history'])->name('history_view');
 
