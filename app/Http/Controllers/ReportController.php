@@ -31,9 +31,29 @@ class ReportController extends Controller{
         return view('pages.print.report-pemasukan', compact('pemasukan', 'grand_total'));
     }
     public function both(){
-        return view('pages.report-pengeluaran');
-        
+        return view('pages.report-both');
     }
+    public function bothCetak(Request $req){
+        $pengeluaran = Transaction::where('status','cash')
+            ->whereDate('created_at', '>=', $req->date_start)
+            ->whereDate('created_at', '<=', $req->date_end)
+            ->get();
+
+        $pemasukan =  LayawayDetail::with('layaway')->where('paid','!=','null')
+            ->whereDate('created_at', '>=', $req->date_start)
+            ->whereDate('created_at', '<=', $req->date_end)
+            ->get();
+    
+        $pengeluaran_grand_total = $pengeluaran->sum('final_price');
+        $pemasukan_grand_total = $pemasukan->sum('paid');
+        $grand_total = $pemasukan_grand_total - $pengeluaran_grand_total;
+        $both = $pengeluaran->merge($pemasukan);
+        $both = $both->sortByDesc('updated_at');
+        $both =$both->toArray();
+        return view('pages.print.report-both', compact('both', 'grand_total', 'pengeluaran_grand_total', 'pemasukan_grand_total'));
+    }
+
+
     public function history(){
         return view('pages.report-pengeluaran');
         

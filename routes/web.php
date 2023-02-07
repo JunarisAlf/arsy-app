@@ -60,6 +60,8 @@ Route::middleware('auth')->group(function(){
         Route::get('/pemasukan/cetak', [ReportController::class, 'pemasukanCetak'])->name('pemasukan_cetak');
 
         Route::get('/pengeluaran-dan-pemasukan', [ReportController::class, 'both'])->name('both_view');
+        Route::get('/pengeluaran-dan-pemasukan/cetak', [ReportController::class, 'bothCetak'])->name('both_cetak');
+        
         Route::get('/riwayat-keungan', [ReportController::class, 'history'])->name('history_view');
 
     });
