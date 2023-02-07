@@ -6,36 +6,22 @@
                 <th>Nama</th>
                 <th>Angsuran ke-</th>
                 <th>Unit</th>
-                <th>Nomor WA</th>
             </tr>
         </thead>
         <tbody>
+            @foreach ($angsuran as $asr)
             <tr>
-                <td>23/12/2023</td>
-                <td>Fulan bin Fulan</td>
-                <td>4</td>
-                <td>Abinaya - D2</td>
-                <td>628223337777</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-block btn-outline-danger">
+                        {{ date('d/m/Y', strtotime($asr->jatuh_tempo))}}
+                    </button>
+                </td>
+                <td> {{$asr->layaway->customer_name}} </td>
+                <td>{{$asr->month}}</td>
+                <td> {{$asr->layaway->project}} - {{$asr->layaway->block}} </td>
             </tr>
-            <tr>
-                <td>23/12/2023</td>
-                <td>Fulan bin Fulan</td>
-                <td>4</td>
-                <td>Abinaya - D2</td>
-                <td>628223337777</td>
-            </tr><tr>
-                <td>23/12/2023</td>
-                <td>Fulan bin Fulan</td>
-                <td>4</td>
-                <td>Abinaya - D2</td>
-                <td>628223337777</td>
-            </tr><tr>
-                <td>23/12/2023</td>
-                <td>Fulan bin Fulan</td>
-                <td>4</td>
-                <td>Abinaya - D2</td>
-                <td>628223337777</td>
-            </tr>
+            @endforeach
+         
            
         </tbody>
     </table>
