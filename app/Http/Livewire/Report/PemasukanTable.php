@@ -13,8 +13,9 @@ class PemasukanTable extends Component{
     protected $listeners = ['refresh_table' => 'refresh', 'print'];
     public function refresh($start,  $end){
         $this->pemasukan = LayawayDetail::where('paid','!=','null')
-            ->whereDate('created_at', '>=', $start)
-            ->whereDate('created_at', '<=', $end)
+            ->whereDate('paid_at', '>=', $start)
+            ->whereDate('paid_at', '<=', $end)
+            ->orderBy('paid_at', 'ASC')
             ->get();
         $this->grand_total = $this->pemasukan->sum('paid');
         $this->date_start = $start;

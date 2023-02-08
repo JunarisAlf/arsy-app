@@ -11,13 +11,18 @@
             </tr>
         </thead>    
         <tbody>
-            @php $i = 0; @endphp
+            @php  $i = 0;   @endphp
             @foreach ($both as  $bth)
-                @php $i++; @endphp
+            @php $i++; @endphp
             <tr>
-                <td>{{$key+1}}</td>
+                <td>{{$i}}</td>
                 <td>
-                    {{ date('d/m/Y', strtotime($bth['updated_at']))}}
+                    {{-- {{ date('d/m/Y', strtotime($bth['updated_at']))}} --}}
+                    @if (array_key_exists('final_price', $bth))
+                        {{ date('d/m/Y', strtotime($bth['created_at']))}}
+                    @elseif(array_key_exists('paid', $bth))   
+                        {{ date('d/m/Y', strtotime($bth['paid_at']))}}
+                    @endif
                 </td>
                 <td>
                     @if (array_key_exists('final_price', $bth))

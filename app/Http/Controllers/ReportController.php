@@ -14,6 +14,7 @@ class ReportController extends Controller{
         $trxs = Transaction::where('status','cash')
             ->whereDate('created_at', '>=', $req->date_start)
             ->whereDate('created_at', '<=', $req->date_end)
+            ->orderBy('created_at', 'ASC')
             ->get();
         $grand_total = $trxs->sum('final_price');
         return view('pages.print.report-pengeluaran', compact('trxs', 'grand_total'));
@@ -24,8 +25,9 @@ class ReportController extends Controller{
     }
     public function pemasukanCetak(Request $req){
         $pemasukan = LayawayDetail::where('paid','!=','null')
-            ->whereDate('created_at', '>=', $req->date_start)
-            ->whereDate('created_at', '<=', $req->date_end)
+            ->whereDate('paid_at', '>=', $req->date_start)
+            ->whereDate('paid_at', '<=', $req->date_end)
+            ->orderBy('paid_at', 'ASC')
             ->get();
         $grand_total = $pemasukan->sum('paid');
         return view('pages.print.report-pemasukan', compact('pemasukan', 'grand_total'));
@@ -37,11 +39,13 @@ class ReportController extends Controller{
         $pengeluaran = Transaction::where('status','cash')
             ->whereDate('created_at', '>=', $req->date_start)
             ->whereDate('created_at', '<=', $req->date_end)
+            ->orderBy('created_at', 'ASC')
             ->get();
 
         $pemasukan =  LayawayDetail::with('layaway')->where('paid','!=','null')
-            ->whereDate('created_at', '>=', $req->date_start)
-            ->whereDate('created_at', '<=', $req->date_end)
+            ->whereDate('paid_at', '>=', $req->date_start)
+            ->whereDate('paid_at', '<=', $req->date_end)
+            ->orderBy('paid_at', 'ASC')
             ->get();
     
         $pengeluaran_grand_total = $pengeluaran->sum('final_price');

@@ -374,11 +374,11 @@ return [
             'route' => 'both_view',
             'icon' => 'fas fa-exchange-alt',
         ],
-        [
-            'text' => 'Riwayat Keuangan',
-            'route' => 'history_view',
-            'icon' => 'fas fa-history',
-        ],
+        // [
+        //     'text' => 'Riwayat Keuangan',
+        //     'route' => 'history_view',
+        //     'icon' => 'fas fa-history',
+        // ],
         ['header' => 'OTHER', 'classes' => 'pt-3'],
         
         [

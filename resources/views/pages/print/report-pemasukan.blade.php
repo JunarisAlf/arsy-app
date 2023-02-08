@@ -27,7 +27,7 @@
                     <td>{{$key+1}}</td>
                     {{-- <td>{{ date_format($pem['created_at'], 'd/m/Y H:i')}}</td> --}}
                     <td>
-                        {{ date('d/m/Y', strtotime($pem['created_at']))}}
+                        {{ date('d/m/Y', strtotime($pem['paid_at']))}}
                     </td>
                     <td>
                         Angsuran ke-{{$pem['month']}} | {{$pem->layaway->customer_name}} | {{$pem->layaway->project}} {{$pem->layaway->block}}

@@ -25,16 +25,20 @@ class BothTable extends Component{
             ->get();
 
         $this->pemasukan = LayawayDetail::with(['layaway'])->where('paid','!=','null')
-            ->whereDate('created_at', '>=', $start)
-            ->whereDate('created_at', '<=', $end)
+            ->whereDate('paid_at', '>=', $start)
+            ->whereDate('paid_at', '<=', $end)
             ->get();
         
         $this->pengeluaran_grand_total = $this->pengeluaran->sum('final_price');
         $this->pemasukan_grand_total = $this->pemasukan->sum('paid');
         $this->grand_total = $this->pemasukan_grand_total - $this->pengeluaran_grand_total;
         $both = $this->pengeluaran->merge($this->pemasukan);
-        $both = $both->sortByDesc('updated_at');
-        $this->both =$both->toArray();
+        $both = $both->sortBy('updated_at')->toArray();
+        $this->both = array_merge([],$both);
+
+        // dd($this->both);
+
+        // dd($this->both);
         // dd($this->pengeluaran, $this->pemasukan);
         // dd($both->toArray());
         $this->date_start = $start;
