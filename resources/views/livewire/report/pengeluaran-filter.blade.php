@@ -3,14 +3,33 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    @php  $config = ["locale" => ["format" => "DD-MM-YYYY"]]; @endphp
-                    <x-adminlte-date-range name="date_range_input" :config="$config" enable-default-ranges="Today" label="Waktu">
-                        <x-slot name="prependSlot">
-                            <div class="input-group-text bg-gradient-success">
-                                <i class="fas fa-calendar-alt"></i>
-                            </div>
-                        </x-slot>
-                    </x-adminlte-date-range>
+                    @unless (Auth::user()->role != 'superadmin')
+                        @php  $config = ["locale" => ["format" => "DD-MM-YYYY"]]; @endphp
+                        <x-adminlte-date-range name="date_range_input" :config="$config" enable-default-ranges="Today" label="Waktu">
+                            <x-slot name="prependSlot">
+                                <div class="input-group-text bg-gradient-success">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                            </x-slot>
+                        </x-adminlte-date-range>
+                    @endunless
+                    @unless (Auth::user()->role != 'admin')
+                        @php  
+                        $config = [
+                            "locale" => ["format" => "DD-MM-YYYY"],
+                            "minDate" => $minDate,
+                            "maxDate" => $maxDate
+                        ];
+                        @endphp
+                         <x-adminlte-date-range name="date_range_input" :config="$config" label="Waktu">
+                            <x-slot name="prependSlot">
+                                <div class="input-group-text bg-gradient-success">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                            </x-slot>
+                        </x-adminlte-date-range>
+                    @endunless
+
                     <input type="hidden" id="report_date_range" name="date_range" wire:model="date_range">
                     @push('js')
                         <script>

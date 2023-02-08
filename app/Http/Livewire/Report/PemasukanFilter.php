@@ -9,9 +9,11 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 
 class PemasukanFilter extends Component{
-    public $date_range;
+    public $date_range,$minDate, $maxDate;
     public function mount(){
-        $this->date_range =  Carbon::now()->startOfMonth()->format('Y-m-d') . '|' . Carbon::now()->endOfMonth()->format('Y-m-d');
+        $this->date_range =  Carbon::now()->format('Y-m-d') . '|' . Carbon::now()->format('Y-m-d');
+        $this->minDate =  Carbon::now()->subDays(7)->format('d-m-y');
+        $this->maxDate = Carbon::now()->format('d-m-y');
     }
     public $pemasukan = [];
     protected $listeners = ['dateChange'];

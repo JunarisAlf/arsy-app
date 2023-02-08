@@ -18,7 +18,14 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'full_name' => 'superadmin',
             'username' => 'superadmin',
+            'role' => 'superadmin',
             'password' => Hash::make('superadmin'),
+        ]);
+        DB::table('users')->insert([
+            'full_name' => 'admin',
+            'username' => 'admin',
+            'role' => 'admin',
+            'password' => Hash::make('admin'),
         ]);
     }
 }

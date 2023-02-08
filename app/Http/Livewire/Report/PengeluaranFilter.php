@@ -10,9 +10,11 @@ use Carbon\Carbon;
 class PengeluaranFilter extends Component{
     // public $startOfMonth =  Carbon::now()->startOfMonth()->format('Y-m-d');
     // public $endOfMonth =  Carbon::now()->endOfMonth()->format('Y-m-d');
-    public $date_range;
+    public $date_range,$minDate, $maxDate;
     public function mount(){
-        $this->date_range =  Carbon::now()->startOfMonth()->format('Y-m-d') . '|' . Carbon::now()->endOfMonth()->format('Y-m-d');
+        $this->date_range =  Carbon::now()->format('Y-m-d') . '|' . Carbon::now()->format('Y-m-d');
+        $this->minDate =  Carbon::now()->subDays(7)->format('d-m-y');
+        $this->maxDate = Carbon::now()->format('d-m-y');
     }
     public $trxs = [];
     protected $listeners = ['dateChange'];
