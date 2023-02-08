@@ -25,9 +25,9 @@ class TrxSeeder extends Seeder
             'price' => 80000,
             'final_price' => 1_600_000 ,
             'status' => 'cash',
+            'created_at' => Carbon::now()->subDay(10)->format('Y-m-d H:i:s')
             // 'saldo' => 10_000_000
         ]);
-        sleep(1);
         Transaction::create([
             'type_id' => 8,
             'name' => 'Pembelian Cat',
@@ -36,10 +36,11 @@ class TrxSeeder extends Seeder
             'price' => 50000,
             'final_price' => 250_000 ,
             'status' => 'cash',
+            'created_at' => Carbon::now()->subDay(7)->format('Y-m-d H:i:s')
+
             // 'saldo' => 9_750_000
             
         ]);
-        sleep(1);
         Transaction::create([
             'type_id' => 8,
             'name' => 'Pembelian Paku',
@@ -48,6 +49,8 @@ class TrxSeeder extends Seeder
             'price' => 20000,
             'final_price' => 60_000 ,
             'status' => 'cash',
+            'created_at' => Carbon::now()->subDay(6)->format('Y-m-d H:i:s')
+
             // 'saldo' => 9_690_000
         ]);
     }

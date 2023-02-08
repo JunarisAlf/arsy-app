@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table table-bordered" style="width: max-content">
+    <table class="table table-bordered" style="min-width: 100%">
         <thead>
             <tr>
                 <th>Tipe</th>
@@ -25,8 +25,8 @@
                 <td>
                     <x-adminlte-button label="Edit" theme="warning" icon="fas fa-pencil-alt"
                     wire:click="update({{$trxType->id}}, '{{$trxType->name}}')"/>
-                    <x-adminlte-button label="Hapus" theme="danger" icon="fas fa-trash-alt"
-                    wire:click="delete({{$trxType->id}}, '{{$trxType->name}}')"/>
+                    {{-- <x-adminlte-button label="Hapus" theme="danger" icon="fas fa-trash-alt"
+                    wire:click="delete({{$trxType->id}}, '{{$trxType->name}}')"/> --}}
                 </td>
             </tr>
             @endforeach

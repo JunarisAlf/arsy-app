@@ -15,7 +15,7 @@ class BothFilter extends Component{
 
     protected $listeners = ['dateChange'];
     public function dateChange($date){
-        $this->date_range = $date;
+        $this->date_range = $date; //need refactor
     }
     public function apply(){
         $date = explode('|',$this->date_range);

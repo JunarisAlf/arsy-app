@@ -29,7 +29,6 @@
                             </x-slot>
                         </x-adminlte-date-range>
                     @endunless
-
                     <input type="hidden" id="report_date_range" name="date_range" wire:model="date_range">
                     @push('js')
                         <script>

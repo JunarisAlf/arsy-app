@@ -38,6 +38,7 @@
                 <x-adminlte-info-box title="Total Saldo" text="Rp. 1.530.252.532" icon="fas fa-lg fa-dollar-sign text-primary"
                 theme="gradient-primary" icon-theme="white"/>
             </div> --}}
+            @unless (Auth::user()->role == 'admin')
             <div class="col-12 col-sm-6 col-md-6">
                 <x-adminlte-info-box title="Uang Masuk" text="Rp. {{ number_format($pemasukan, 2, ',', '.') }}"
                     icon="fas fa-lg fa-sign-in-alt text-success" theme="gradient-success" icon-theme="white" />
@@ -46,6 +47,8 @@
                 <x-adminlte-info-box title="Uang Keluar" text="Rp. {{ number_format($pengeluaran, 2, ',', '.') }}"
                     icon="fas fa-lg fa-sign-out-alt text-info" theme="gradient-info" icon-theme="white" />
             </div>
+            @endunless
+           
         </div>
 
         <div class="row mt-4">
