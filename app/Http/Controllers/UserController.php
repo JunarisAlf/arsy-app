@@ -23,6 +23,9 @@ class UserController extends Controller{
         $req->session()->invalidate();
         $req->session()->regenerateToken();
         return redirect('masuk');
-}
+    }
+    public function password(){
+        return view('pages.password');
+    }
     
 }

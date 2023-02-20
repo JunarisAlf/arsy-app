@@ -30,6 +30,8 @@ Route::middleware('guest')->group(function(){
 Route::middleware('auth')->group(function(){
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
     Route::get('/', [HomeController::class, 'home'])->name('home');
+    Route::get('/password', [UserController::class, 'password'])->name('password');
+
     Route::prefix('/transaksi')->group(function () {
         Route::get('/', [TrxController::class, 'index'])->name('trx_view');
     });

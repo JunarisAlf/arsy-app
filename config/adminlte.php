@@ -381,15 +381,20 @@ return [
         // ],
         ['header' => 'OTHER', 'classes' => 'pt-3'],
         
-        [
-            'text' => 'Stok',
-            'route' => 'stock_view',
-            'icon' => 'fas fa-boxes',
-        ],
+        // [
+        //     'text' => 'Stok',
+        //     'route' => 'stock_view',
+        //     'icon' => 'fas fa-boxes',
+        // ],
         [
             'text' => 'Atur Kategori',
             'route' => 'category_view',
             'icon' => 'fas fa-th-list',
+        ],
+        [
+            'text' => 'Ganti Password',
+            'route' => 'password',
+            'icon' => 'fas fa-key',
         ],
             // [
             //     'text'    => 'multilevel',
