@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Transaksi Keungan | Arsy')
+@section('title', 'Transaksi Keungan | Dmasgroup')
 
 @section('content_header')
     @livewire('trx.transaction-confirm-modal')

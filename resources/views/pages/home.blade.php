@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Dashboard | Dmasgroup')
 
 @section('content_header')
     @if (Session::has('success'))

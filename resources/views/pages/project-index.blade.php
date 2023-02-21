@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Project | Arsy')
+@section('title', 'Project | Dmasgroup')
 
 @section('content_header')
     @livewire('project.confirm-modal')

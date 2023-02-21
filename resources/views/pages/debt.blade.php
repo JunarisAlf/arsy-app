@@ -6,7 +6,7 @@
     @livewire('debt.pay-debt-confirmation')
     @livewire('debt.update-debt')
     @livewire('alert.simple-alert')
-    <h1>Daftar Hutang</h1>
+    <h1>Daftar Hutang </h1>
 @stop
 
 @section('content')

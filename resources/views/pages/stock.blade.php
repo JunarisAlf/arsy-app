@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Stock Barang | Arsy')
+@section('title', 'Stock Barang | Dmasgroup')
 
 @section('content_header')
     @livewire('stock.stock-confirm-modal')
@@ -9,7 +9,7 @@
     @livewire('stock.modify-stock')
     @livewire('stock.update-alocation')
     @livewire('alert.simple-alert')
-    <h1>Stock Barang</h1>
+    <h1>Stock Barang </h1>
 @stop
 
 @section('content')

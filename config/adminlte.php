@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'ARSY',
+    'title' => 'Dmasgroup',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>ARSY</b>',
-    'logo_img' => 'logo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-2',
+    'logo' => '<b>DMASGROUP</b>',
+    'logo_img' => 'logo1x1.png',
+    // 'logo_img_class' => 'brand-image img-circle elevation-2',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Arsy Logo',
+    'logo_img_alt' => 'Dmasgroup Logo',
 
     /*
     |--------------------------------------------------------------------------
@@ -113,7 +113,7 @@ return [
             'alt' => 'Arsy Preloader Image',
             'effect' => 'animation__shake',
             'width' => 150,
-            'height' => 150,
+            'height' => 70,
         ],
     ],
 
@@ -387,7 +387,7 @@ return [
         //     'icon' => 'fas fa-boxes',
         // ],
         [
-            'text' => 'Atur Kategori',
+            'text' => 'Atur Kategori Transaksi',
             'route' => 'category_view',
             'icon' => 'fas fa-th-list',
         ],

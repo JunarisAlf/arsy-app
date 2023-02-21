@@ -3,7 +3,7 @@
 @section('title', 'Laporan Pemasukan | Dmasgroup')
 
 @section('content_header')
-    <h1>Laporan Pemasukan</h1>
+    <h1>Laporan Pemasukan </h1>
 @stop
 
 @section('content')
