@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\DebtController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KasController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SalesController;
@@ -50,6 +51,9 @@ Route::middleware('auth')->group(function(){
     });
     Route::prefix('/data-penjualan')->group(function () {
         Route::get('/', [SalesController::class, 'index'])->name('sales_view');
+    });
+    Route::prefix('/data-kas')->group(function () {
+        Route::get('/', [KasController::class, 'index'])->name('kas_view');
     });
     Route::prefix('/kontraktor')->group(function () {
         Route::get('/', [ContractorController::class, 'index'])->name('contractor_view');

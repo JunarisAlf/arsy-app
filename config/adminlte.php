@@ -357,6 +357,11 @@ return [
             'route' => 'sales_view',
             'icon' => 'fas fa-home',
         ],
+        [
+            'text' => 'Kas Masuk',
+            'route' => 'kas_view',
+            'icon' => 'fas fa-home',
+        ],
         ['header' => 'LAPORAN', 'classes' => 'pt-3'],
         
         [

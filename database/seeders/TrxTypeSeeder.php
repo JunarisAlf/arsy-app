@@ -17,6 +17,14 @@ class TrxTypeSeeder extends Seeder
     {
         DB::table('trx_types')->insert([
             [
+                'name' => 'KAS',
+                'cash_flow' => 'IN'
+            ],
+            [
+                'name' => 'Pembukuan Awal',
+                'cash_flow' => 'OUT'
+            ],
+            [
                 'name' => 'Pembelian Material',
                 'cash_flow' => 'out'
             ],
@@ -47,7 +55,8 @@ class TrxTypeSeeder extends Seeder
             [
                 'name' => 'Pelunasan',
                 'cash_flow' => 'IN'
-            ],
+            ]
+            
         ]);
     }
 }

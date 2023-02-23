@@ -22,19 +22,40 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($pemasukan as $key => $pem)
+                @php  $i = 0;   @endphp
+                @foreach ($pemasukan as  $pem)
+                @php $i++; @endphp
                 <tr>
-                    <td>{{$key+1}}</td>
-                    {{-- <td>{{ date_format($pem['created_at'], 'd/m/Y H:i')}}</td> --}}
+                    <td>{{$i}}</td>
+
                     <td>
-                        {{ date('d/m/Y', strtotime($pem['paid_at']))}}
+                        {{-- {{ date('d/m/Y', strtotime($bth['updated_at']))}} --}}
+                        @if (array_key_exists('jumlah', $pem))
+                            {{ date('d/m/Y', strtotime($pem['created_at']))}}
+                        @elseif(array_key_exists('layaway_id', $pem))   
+                            {{ date('d/m/Y', strtotime($pem['paid_at']))}}
+                        @endif
                     </td>
+
                     <td>
-                        Angsuran ke-{{$pem['month']}} | {{$pem->layaway->customer_name}} | {{$pem->layaway->project}} {{$pem->layaway->block}}
+                        @if (array_key_exists('jumlah', $pem))
+                            {{$pem['note']}}
+                        @elseif(array_key_exists('layaway_id', $pem))   
+                            Angsuran ke-{{$pem['month']}} | {{$pem['layaway']['customer_name']}} | {{$pem['layaway']['project']}} {{$pem['layaway']['block']}}
+                        @endif
                     </td>
-                    <td>{{number_format($pem['paid'],2,'.',',')}}</td>
+
+                    <td>
+                        @if (array_key_exists('jumlah', $pem))
+                            {{number_format($pem['jumlah'],2,'.',',')}}
+                        @elseif(array_key_exists('layaway_id', $pem))   
+                            {{number_format($pem['paid'],2,'.',',')}}
+                        @endif
+                    </td>
+
                 </tr>
                 @endforeach
+
                 <tr class="text-center text-bold">
                     <td colspan="3" >TOTAL</td>
                     <td>Rp. {{number_format($grand_total,2,'.',',')}}</td>

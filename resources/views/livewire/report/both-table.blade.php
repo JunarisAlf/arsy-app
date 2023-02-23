@@ -7,7 +7,7 @@
                 <th>Tanggal</th>
                 <th>Keterangan</th>
                 <th>DEBIT</th>
-                <th>KREDIT</th>
+                <th>KREDIT</th> 
             </tr>
         </thead>    
         <tbody>
@@ -22,6 +22,8 @@
                         {{ date('d/m/Y', strtotime($bth['created_at']))}}
                     @elseif(array_key_exists('paid', $bth))   
                         {{ date('d/m/Y', strtotime($bth['paid_at']))}}
+                    @elseif(array_key_exists('jumlah', $bth))   
+                        {{ date('d/m/Y', strtotime($bth['created_at']))}}
                     @endif
                 </td>
                 <td>
@@ -29,10 +31,14 @@
                         {{$bth['name']}} {{ '@'.$bth['quantity']}} {{$bth['unit']}}
                     @elseif(array_key_exists('paid', $bth))   
                         Angsuran ke-{{$bth['month']}} | {{$bth['layaway']['customer_name']}} | {{$bth['layaway']['project']}} {{$bth['layaway']['block']}}
+                    @elseif(array_key_exists('jumlah', $bth))   
+                        {{$bth['note']}}
                     @endif
                 </td>
                 <td>
-                    @if(array_key_exists('paid', $bth))   
+                    @if (array_key_exists('jumlah', $bth))
+                        {{number_format($bth['jumlah'],2,'.',',')}}
+                    @elseif(array_key_exists('layaway_id', $bth))   
                         {{number_format($bth['paid'],2,'.',',')}}
                     @endif
                 </td>
