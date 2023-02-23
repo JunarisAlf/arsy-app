@@ -20,7 +20,9 @@ class InitSeeder extends Seeder
         
 
         // Read the JSON file 
-        $raw = file_get_contents('database\seeders\kas_kecil.json');
+        // $raw = file_get_contents('database\seeders\kas_kecil.json');
+        $raw = file_get_contents('kas_kecil.json', FILE_USE_INCLUDE_PATH);
+
         // Decode the JSON file
         $kas_kecil = json_decode($raw ,true);
         foreach ($kas_kecil as $kas) {
