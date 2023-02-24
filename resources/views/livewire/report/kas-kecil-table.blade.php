@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <a  href="{{route('both_cetak', compact('date_start', 'date_end') )}}" class="btn btn-warning mb-4" target="_blank"> <i class="fas fa-print"></i>  Cetak</a>
+    <a  href="{{route('kasKecil_cetak', compact('date_start', 'date_end') )}}" class="btn btn-warning mb-4" target="_blank"> <i class="fas fa-print"></i>  Cetak</a>
     <table  class="table-bordered table" style="width: 100%">
         <thead>
             <tr>

@@ -34,6 +34,7 @@ class KasKecilTable extends Component
         $this->pemasukan_grand_total = $kas_sum;
         $this->grand_total = $this->pemasukan_grand_total - $this->pengeluaran_grand_total;
         $this->date_end = $end;
+        $this->date_start = $start;
     }
     public function render()
     {

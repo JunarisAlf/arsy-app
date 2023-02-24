@@ -81,7 +81,6 @@ class ReportController extends Controller{
         usort($both, function ($a, $b) {
             return strtotime($a['updated_at']) - strtotime($b['updated_at']);
         });
-        $both = $both;
         return view('pages.print.report-both', compact('both', 'grand_total', 'pengeluaran_grand_total', 'pemasukan_grand_total'));
     }
     public function history(){
@@ -92,14 +91,43 @@ class ReportController extends Controller{
     public function kasKecil(){
         return view('pages.report-kas-kecil');
     }
-    public function kasKecilCetak(){
-        
+    public function kasKecilCetak(Request $req){
+        $pengeluaran = Transaction::where('status','cash')
+            ->whereDate('created_at', '>=', $req->date_start)
+            ->whereDate('created_at', '<=', $req->date_end)
+            ->get();
+        $pengeluaran_sum = $pengeluaran->sum('final_price');
+        $kas = Kas::whereDate('created_at', '>=', $req->date_start)
+            ->whereDate('created_at', '<=', $req->date_end)
+            ->orderBy('created_at', 'ASC')
+            ->get();
+        $kas_sum = $kas->sum('jumlah');
+
+        $all = $pengeluaran->merge($kas);
+        $all = $all->sortBy('updated_at')->toArray();
+        $kasKecil = array_merge([], $all);
+
+        $pengeluaran_grand_total = $pengeluaran_sum;
+        $pemasukan_grand_total = $kas_sum;
+        $grand_total = $pemasukan_grand_total - $pengeluaran_grand_total;
+        return view('pages.print.report-kas-kecil', compact('kasKecil', 'pengeluaran_grand_total', 'pemasukan_grand_total', 'grand_total'));
     }
     public function kasBesar(){
         return view('pages.report-kas-besar');
     }
-    public function kasBesarCetak(){
+    public function kasBesarCetak(Request $req){
+        $layaway = LayawayDetail::with(['layaway'])->where('paid','!=','null')
+            ->whereDate('paid_at', '>=', $req->date_start)
+            ->whereDate('paid_at', '<=', $req->date_end)
+            ->orderBy('updated_at', 'ASC')
+            ->get();
+        $layaway_sum = $layaway->sum('paid');
         
+        
+        $kasBesar = $layaway->sortBy('updated_at')->toArray();
+        $kasBesar = array_merge([],$kasBesar);
+        $grand_total = $layaway_sum;
+        return view('pages.print.report-kas-besar', compact('kasBesar', 'grand_total'));
     }
 
 }
