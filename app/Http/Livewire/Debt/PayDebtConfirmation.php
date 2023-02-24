@@ -23,16 +23,15 @@ class PayDebtConfirmation extends Component
     public function pay($id){
         $trx = Transaction::find($id);
         $trx_latest = Transaction::latest()->first();
-        $new_trx = $trx->replicate(['saldo', 'note', 'jatuh_tempo'])->fill([
+        $new_trx = $trx->replicate(['note', 'jatuh_tempo'])->fill([
             'status' => 'cash',
-            'saldo' => $trx_latest->saldo - $this->final_price,
             'note' => 'Bayar Hutang'
         ]);
         // dd($new_trx);
 
         DB::transaction(function () use ($trx, $new_trx){
             $trx->status = 'lunas';
-            $trx->paid_at = date('Y-m-d');
+            $trx->paid_at = date('Y-m-d H:i:s');
             $trx->save();
             $new_trx->save();
         });
