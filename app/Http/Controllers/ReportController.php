@@ -84,10 +84,22 @@ class ReportController extends Controller{
         $both = $both;
         return view('pages.print.report-both', compact('both', 'grand_total', 'pengeluaran_grand_total', 'pemasukan_grand_total'));
     }
-
-
     public function history(){
         return view('pages.report-pengeluaran');
         
     }
+
+    public function kasKecil(){
+        return view('pages.report-kas-kecil');
+    }
+    public function kasKecilCetak(){
+        
+    }
+    public function kasBesar(){
+        return view('pages.report-kas-besar');
+    }
+    public function kasBesarCetak(){
+        
+    }
+
 }

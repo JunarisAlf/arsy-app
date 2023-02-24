@@ -68,6 +68,12 @@ Route::middleware('auth')->group(function(){
         Route::get('/pengeluaran-dan-pemasukan', [ReportController::class, 'both'])->name('both_view');
         Route::get('/pengeluaran-dan-pemasukan/cetak', [ReportController::class, 'bothCetak'])->name('both_cetak');
         
+        Route::get('/kas-kecil', [ReportController::class, 'kasKecil'])->name('kasKecil_view');
+        Route::get('/kas-besar/cetak', [ReportController::class, 'kasKecilCetak'])->name('kakKecil_cetak');
+
+        Route::get('/kas-besar', [ReportController::class, 'kasBesar'])->name('kasBesar_view');
+        Route::get('/kas-besar/cetak', [ReportController::class, 'kasBesarCetak'])->name('kasBesar_cetak');
+
         Route::get('/riwayat-keungan', [ReportController::class, 'history'])->name('history_view');
 
     });

@@ -379,6 +379,16 @@ return [
             'route' => 'both_view',
             'icon' => 'fas fa-exchange-alt',
         ],
+        [
+            'text' => 'Kas Kecil',
+            'route' => 'kasKecil_view',
+            'icon' => 'fas fa-sticky-note',
+        ],
+        [
+            'text' => 'Kas Besar',
+            'route' => 'kasBesar_view',
+            'icon' => 'fas fa-book-open',
+        ],
         // [
         //     'text' => 'Riwayat Keuangan',
         //     'route' => 'history_view',
