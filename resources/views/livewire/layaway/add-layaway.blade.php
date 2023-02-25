@@ -30,6 +30,7 @@
                     <i class="fas fa-home"></i>
                 </div>
             </x-slot>
+            <option value="">Pilih Project</option>
             <option value="Abinaya">Abinaya</option>
             <option value="Dmashmome">Dmashome</option>
             <option value="Utama">Utama</option>
