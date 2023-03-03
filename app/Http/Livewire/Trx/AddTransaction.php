@@ -8,7 +8,7 @@ use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class AddTransaction extends Component{
-    public $type_id, $name, $quantity = 0, $unit, $final_price, $price = 0, $note, $status, $jatuh_tempo, $is_hutang;
+    public $type_id, $name, $quantity = 0, $unit, $final_price, $price = 0, $note, $status, $jatuh_tempo, $is_hutang, $created_at;
     public $status_opt = [
         ['value' => 'cash', 'label' => 'Bayar Lunas'],
         ['value' => 'hutang', 'label' => 'Hutang'],
@@ -18,9 +18,12 @@ class AddTransaction extends Component{
     public function mount(){
         $this->trx_types = TrxType::where('cash_flow', 'out')->orderBy('name', 'ASC')->get();
     }
-    protected $listeners = ['datePickerChange'];
+    protected $listeners = ['datePickerChange', 'created_at_change'];
     public function datePickerChange($date){
         $this->jatuh_tempo = $date;
+    }
+    public function created_at_change($date){
+        $this->created_at = $date;
     }
 
     public function finalPrice(){
@@ -48,7 +51,10 @@ class AddTransaction extends Component{
         ]);
         // $trx_latest = Transaction::where('status', '!=', 'hutang')->latest()->first();
         // $validated['saldo'] = $this->status == 'hutang' ? $trx_latest->saldo :  ($trx_latest->saldo - $this->final_price);
-        // dd($validated);
+        if($this->created_at != null){
+            $validated['created_at'] =  $this->created_at;
+            $validated['updated_at'] =  $this->created_at;
+        }
         Transaction::create($validated);
         $this->resetExcept('trx_types');
         

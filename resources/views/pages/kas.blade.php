@@ -21,6 +21,7 @@
 
     </div>
 @stop
+@section('plugins.TempusDominusBs4', true)
 
 @section('css')
     @livewireStyles
