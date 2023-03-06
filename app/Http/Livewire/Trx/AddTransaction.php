@@ -18,13 +18,11 @@ class AddTransaction extends Component{
     public function mount(){
         $this->trx_types = TrxType::where('cash_flow', 'out')->orderBy('name', 'ASC')->get();
     }
-    protected $listeners = ['datePickerChange', 'created_at_change'];
+    protected $listeners = ['datePickerChange'];
     public function datePickerChange($date){
         $this->jatuh_tempo = $date;
     }
-    public function created_at_change($date){
-        $this->created_at = $date;
-    }
+
 
     public function finalPrice(){
         if( $this->quantity && $this->price ){

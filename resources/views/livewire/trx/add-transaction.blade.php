@@ -1,24 +1,12 @@
 <form method="post" wire:submit.prevent="store">
     <x-adminlte-card title="Tambah Data Transaksi" theme="success" icon="fas fa-plus-square">
-        @php  $config = ['format' => 'DD/MM/YYYY HH:MM']; @endphp
-        <x-adminlte-input-date id="inputDate" name="created_at" :config="$config" placeholder="Pilih Tanggal" label="Tanggal Transaksi" label-class="text-success">
-            <x-slot name="appendSlot">
-                <x-adminlte-button theme="outline-success" icon="fas fa-lg fa-calendar-plus"
-                    title="Tanggal Transaksi"/>
+        <x-adminlte-input type="datetime-local" name="created_at" label="Tanggal dibuat" placeholder="Tanggal dibuat" label-class="text-success" wire:model="created_at" >
+            <x-slot name="prependSlot">
+                <div class="input-group-text">
+                    <i class="fas fa-calendar text-success"></i>
+                </div>
             </x-slot>
-        </x-adminlte-input-date>
-       <input type="hidden" name="created_at" wire:model="created_at">
-       @push('js')
-           <script>
-                $(function() {
-                    $('#inputDate').datetimepicker();
-                    $('#inputDate').on("change.datetimepicker", function (e) {
-                        Livewire.emit('created_at_change', e.date.format('Y-MM-DD HH:MM'));
-                        // console.log(e.date.format('D/M/Y'));
-                    });
-                });
-           </script>
-       @endpush
+    </x-adminlte-input>
 
         <x-adminlte-select name="type_id" label="Jenis Transaksi" label-class="text-success" igroup-size="md" wire:model="type_id">
             <x-slot name="prependSlot">

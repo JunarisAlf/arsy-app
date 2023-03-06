@@ -9,16 +9,10 @@ class AddKas extends Component
 {
     public $created_at;
     public $jumlah, $note;
-    protected $listeners = ['created_at_change'];
     
-    public function created_at_change($date){
-        $this->created_at = $date;
-    }
+ 
     public function store(){
-        $this->validate([ 'jumlah' => 'required' ]);
-        $validated['created_at'] =  $this->created_at;
-        $validated['updated_at'] =  $this->created_at;
-
+        $this->validate([ 'jumlah' => 'required', 'note' => 'required']);
         Kas::create([
             'jumlah' => $this->jumlah,
             'note' => $this->note,
