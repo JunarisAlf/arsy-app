@@ -21,7 +21,7 @@ class UpdateLayawayDetail extends Component{
         $layaway = LayawayDetail::find($id);
         $layaway->paid = $this->paid;
         $layaway->note = $this->note;
-        $layaway->paid_at = new DateTime();
+        $layaway->paid_at = new DateTime($this->paid_at);
         $layaway->save();
 
         $this->emit('refresh_alert', [
