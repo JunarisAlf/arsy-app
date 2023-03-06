@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class AddLayaway extends Component{
-    public $customer_name, $customer_wa, $tenor, $project, $block, $price, $note;
+    public $customer_name, $customer_wa, $tenor, $project, $block, $price, $note, $date_start;
 
     public function store(){
         $validated = $this->validate([
@@ -25,7 +25,7 @@ class AddLayaway extends Component{
         $layaway = new Layaway($validated);
         DB::transaction(function () use($layaway) {
             $layaway->save();
-            $jatuh_tempo = new DateTime();
+            $jatuh_tempo = new DateTime($this->date_start);
             for ($i=1; $i <= 12 ; $i++) { 
                 $detail = new LayawayDetail([
                     'month' => $i,

@@ -60,6 +60,13 @@
             </x-slot>
         </x-adminlte-input>
 
+        <x-adminlte-input type="date" name="date_start" label="Tangga Mulai Angsuran" placeholder="Tangga Mulai Angsuran" label-class="text-primary" wire:model="date_start" >
+            <x-slot name="prependSlot">
+                <div class="input-group-text">
+                    <i class="fas fa-calendar text-primary"></i>
+                </div>
+            </x-slot>
+        </x-adminlte-input>
         <x-slot name="footerSlot">
             <x-adminlte-button class="d-flex ml-auto px-3 py-2" theme="primary" label="Tambah" type='submit' />
         </x-slot>

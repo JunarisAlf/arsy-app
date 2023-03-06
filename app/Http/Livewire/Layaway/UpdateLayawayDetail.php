@@ -7,7 +7,7 @@ use DateTime;
 use Livewire\Component;
 
 class UpdateLayawayDetail extends Component{
-    public $show = 'hidden', $detail_id, $month, $paid, $note;
+    public $show = 'hidden', $detail_id, $month, $paid, $note, $paid_at;
 
     protected $listeners = ['pay_layaway' => 'updateModal'];
     public function updateModal($id){

@@ -12,6 +12,13 @@
                 </button>
             </div>
             <div class="modal-body">
+                <x-adminlte-input type="datetime-local" name="paid_at" label="Tangga Bayar" placeholder="Tangga Bayar" wire:model="paid_at" >
+                    <x-slot name="prependSlot">
+                        <div class="input-group-text">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                    </x-slot>
+                </x-adminlte-input>
 
                 <x-adminlte-input type="number"  name="paid" label="Pembayaran" placeholder="Pembayaran"  wire:model="paid">
                     <x-slot name="prependSlot">

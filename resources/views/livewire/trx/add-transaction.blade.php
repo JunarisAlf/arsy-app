@@ -6,7 +6,7 @@
                     <i class="fas fa-calendar text-success"></i>
                 </div>
             </x-slot>
-    </x-adminlte-input>
+        </x-adminlte-input>
 
         <x-adminlte-select name="type_id" label="Jenis Transaksi" label-class="text-success" igroup-size="md" wire:model="type_id">
             <x-slot name="prependSlot">
